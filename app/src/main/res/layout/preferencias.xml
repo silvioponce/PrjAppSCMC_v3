@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<PreferenceScreen
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Registros de Niños">
+
+        <Preference
+
+            android:title="@string/mdi_op1"
+            android:icon="@mipmap/ic_children">
+
+            <intent
+                android:targetPackage="com.sci.sponce.prjappscmc"
+                android:targetClass="com.sci.sponce.prjappscmc.ListNinosActivity" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Registro de Casos Comunitarios">
+
+        <Preference
+
+            android:title="Niño Recien Nacido"
+            android:icon="@mipmap/ic_registrar2">
+
+            <intent
+                android:targetPackage="com.sci.sponce.prjappscmc"
+                android:targetClass="com.sci.sponce.prjappscmc.ListCasoMenoresActivity" />
+        </Preference>
+
+        <Preference
+
+            android:title="Niño Mayor 2 Meses"
+            android:icon="@mipmap/ic_registrar2">
+
+            <intent
+                android:targetPackage="com.sci.sponce.prjscmcapp"
+                android:targetClass="com.sci.sponce.prjscmcapp.CasosNinosActivity" />
+        </Preference>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Registro de Seguimiento">
+
+        <Preference
+
+            android:title="Niño Recien Nacido"
+            android:icon="@mipmap/ic_visitas">
+
+            <intent
+                android:targetPackage="com.sci.sponce.prjscmcapp"
+                android:targetClass="com.sci.sponce.prjscmcapp.VisitaNinosMenoresActivity" />
+        </Preference>
+
+        <Preference
+
+            android:title="Niño Mayor 2 Meses"
+            android:icon="@mipmap/ic_visitas">
+
+            <intent
+                android:targetPackage="com.sci.sponce.prjscmcapp"
+                android:targetClass="com.sci.sponce.prjscmcapp.VisitaNinosMayoresActivity" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Visor de Archivos">
+
+        <Preference
+
+            android:title="Manual de Usuario"
+            android:key="prueba"
+            android:icon="@mipmap/ic_pdf_view">
+
+
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/mdi_cat3">
+
+        <Preference
+
+            android:title="Carga de Datos"
+            android:icon="@mipmap/ic_upload">
+
+            <intent
+                android:targetPackage="com.sci.sponce.prjscmcapp"
+                android:targetClass="com.sci.sponce.prjscmcapp.CargaArchivosActivity" />
+        </Preference>
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

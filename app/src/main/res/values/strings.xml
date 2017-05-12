@@ -1,0 +1,261 @@
+<resources>
+    <string name="app_name">Casos Comunitarios</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_user">Usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Iniciar Sesión</string>
+    <string name="action_sign_in_short">Iniciar Sesión</string>
+    <string name="error_invalid_user">El Usuario es Invalido</string>
+    <string name="error_invalid_password">La Contraseña es muy Corta</string>
+    <string name="error_incorrect_password">La Contraseña es incorrecta</string>
+    <string name="error_field_required">Este campo es invalido</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!-- login -->
+    <string name="titulo1">Ministerio de Salud</string>
+    <string name="titulo2">Gestión de Casos Comunitarios</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasenna">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="errorvacio">Credenciales incompletas</string>
+    <string name="errorlogin">Credenciales invalidas</string>
+
+    <!-- mdi -->
+    <string name="title_activity_mdi">Menú Principal</string>
+    <string name="mdi_cat1">Captura de Datos</string>
+    <string name="mdi_op1">Catálogo de Niños</string>
+    <string name="mdi_op2">Casos Registrados</string>
+    <string name="mdi_op3">Visitas de Seguimiento</string>
+    <string name="mdi_cat2">Consulta de Datos</string>
+    <string name="mdi_op4">Consulta de Casos</string>
+    <string name="mdi_cat3">Sincronización de Datos</string>
+    <string name="mdi_op5">Descarga de Catálogos</string>
+    <string name="mdi_op6">Carga de Cuestionarios</string>
+
+    <!-- catalogo de ninos -->
+    <string name="title_activity_cat_ninos">Catálogo de Niños</string>
+    <string name="nuevo_ninno">Nuevo Niño</string>
+
+    <!-- nuevo niño -->
+    <string name="title_activity_cuestionario">Nuevo registro</string>
+    <string name="datosgenerales">I. Datos Generales:</string>
+    <string name="departamento">Nombre del Departamento</string>
+    <string name="municipio">Nombre del Municipio</string>
+    <string name="comunidad">Nombre de la Comunidad</string>
+    <string name="brigadista">Nombre del Brigadista de Salud</string>
+    <string name="madre">Nombre de la Madre del Menor</string>
+    <string name="nombreninno">Nombre del(a) niñ(a)</string>
+    <string name="fecatencion">Fecha de Atención</string>
+    <string name="fecnacmimiento">Fec. Nacimiento</string>
+    <string name="edadmeses">Edad (Meses)</string>
+    <string name="sexoninno">Sexo:</string>
+    <string name="m">M</string>
+    <string name="f">F</string>
+    <string name="pesonacer">Peso al nacer</string>
+    <string name="mayor2500">&lt; de 2500 g </string>
+    <string name="menor2500">&gt; de 2500 g </string>
+    <string name="motivoatencion">Motivo de la atención</string>
+    <string name="diarrea">Diarrea</string>
+    <string name="fiebre">Fiebre</string>
+    <string name="tos">Tos o Catarro</string>
+    <string name="neumonía">Neumonía</string>
+    <string name="otros">Otros</string>
+    <string name="lugaratencion">Lugar de la atención</string>
+    <string name="sesionpesaje">Sesión de pesaje</string>
+    <string name="madrebuscabps">Madre busca a BPS</string>
+    <string name="visitadomiciliar">Visita Domiciliar</string>
+    <string name="atencionprimeravez">Atención primera vez:</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="continuar">Guardar</string>
+    <string name="exito">Registro guardado exitosamente</string>
+
+    <!-- catalogo de casos -->
+    <string name="title_activity_cat_casos">Casos Registrados</string>
+    <string name="nuevo_caso">Nuevo Caso</string>
+
+    <!-- menu de casos -->
+    <string name="title_activity_menu_ninnos">Niños Registrados</string>
+
+    <!-- casos de ninnos menores -->
+    <string name="title_activity_cuestionario_ninnos_menores">Cuestionario Niños Menores</string>
+    <string name="tituloninnosmenores">II. Preguntas para niños de 0 a 59 dias</string>
+    <string name="subtituloninnosmenores">Observe, revise y compruebe si hay uno o más de estos signos</string>
+    <string name="tomarpecho">No puede tomar del pecho o beber </string>
+    <string name="convulciones">Ha tenido convulsiones o ataques</string>
+    <string name="hundepiel">Se le hunde la piel debajo de la costilla al respirar</string>
+    <string name="ruidosraros">Ruidos raros al respirar o hervor en el pecho</string>
+    <string name="respiracionprofunda">¿Hay respiración rápida?</string>
+    <string name="temperaturas">Temperaturas bajas y altas</string>
+    <string name="tienefiebre">Tiene temperatura alta</string>
+    <string name="temperaturabaja">Tiene temperatura baja</string>
+    <string name="ojosamarillos">Tiene Piel y ojos amarillos</string>
+    <string name="movimientoestimulado">Tiene Movimiento sólo cuando está estimulado, o ningún movimiento, incluso en la estimulación</string>
+    <string name="infeccionoral">Hay signos de infección local: </string>
+    <string name="ombligoconpus">Ombligo: ¿Hay pus que sale del cordón umbilical? </string>
+    <string name="cordonombilical">¿La piel alrededor del cordón umbilical esta roja? </string>
+    <string name="granospiel">Piel: ¿Hay granos o abscesos en la piel llenos de pus? </string>
+    <string name="ojosconpus">Ojos: ¿Hay pus saliendo de los ojos? </string>
+    <string name="infeccionoralcompleto">Hay signos de infección local:\n
+				    - Ombligo: ¿Hay pus que sale del cordón umbilical?\n
+				    - ¿La piel alrededor del cordón umbilical esta roja?\n
+				    - Piel: ¿Hay granos o abscesos en la piel llenos de pus?\n
+				    - Ojos: ¿Hay pus saliendo de los ojos? </string>
+
+    <string name="otras">Otras </string>
+
+    <!-- visitas de seguimiento -->
+
+
+    <!-- casos de ninnos mayores -->
+    <string name="title_activity_cuestionario_ninnos_mayores">Cuestionario Niños Mayores</string>
+    <string name="tituloninnosmayores">II. Preguntas para niños de 2 meses de edad a 71 mes</string>
+    <string name="subtituloninnosmayores">Observe, revise y compruebe si hay uno o más de estos signos</string>
+    <string name="dificildespertar">Muy dormido o es difícil de despertar o tiene la mirada perdida o desorientada</string>
+    <string name="dificildespertar2">Muy dormido o es difícil de despertar o tiene la mirada perdida o desorientada \n
+					- No puede tomar del pecho o beber\n
+					- Vomita todo\n
+					- Ataques\n</string>
+    <string name="vomitaTodo">Vomita Todo</string>
+    <string name="ataques">Ataques</string>
+    <string name="hundelapiel">Se le hunde la piel debajo de la costilla al respirar</string>
+    <string name="respiracionrapida">¿Hay respiración rápida?\n
+					- 2 Meses a 11 meses: 50 respiraciones o más por minuto\n
+					- 12 meses a 5 años: 40 respiraciones o más por minuto</string>
+    <string name="signoneumonia">Ningún signo de neumonía</string>
+    <string name="tosCatarro">Tos y Catarro</string>
+    <string name="moco">Moco</string>
+    <string name="muuydormido">Muy dormido</string>
+    <string name="DejoComer">Dejo de comer o beber</string>
+    <string name="OjosHundido">Ojos hundidos</string>
+    <string name="SignoPliegue">Signo del pliegue</string>
+    <string name="DiarreMayorDias">Diarrea por más de 14 días</string>
+    <string name="PopuSangre">Pupú con sangre y con moco</string>
+    <string name="InquietoIrritable">Inquieto e irritable</string>
+    <string name="BebeMuchaSed">Bebe con mucha sed</string>
+    <string name="PresentaDeshidratacion">Si presenta dos de los signos anteriores</string>
+    <string name="CostadoCaliente">Costados Calientes</string>
+
+    <string name="sipresentasignos">Si no presenta signos de deshidratación\n
+					Este niño tiene diarrea sin deshidratación</string>
+
+    <!-- recomendaciones -->
+    <string name="title_activity_recomendaciones">RecomendacionesActivity</string>
+    <string name="recomendaciones">Recomendaciones</string>
+    <string name="respuestamayor1">Este niño tiene enfermedad grave. Refiéralo inmediatamente al establecimiento de salud </string>
+    <string name="respuestamayor2">Este niño tiene Neumonía grave. Dele la primera dosis de Amoxicilina. \n
+			Presentación: Jarabe de250 mg/5 ml\n
+			-	2 a 11 meses; ½ cucharadita\n
+			-	1 a 4 años: 1 cucharadita\n
+			-	5 a 6 años 1 ½ cucharadita\n
+			\n
+			Refiéralo inmediatamente al establecimiento de salud </string>
+    <string name="respuestamayor3">Este niño tiene Neumonía no complicada. De consejería con la lámina de que está haciendo con neumonía en la casa \n
+			* Pregunte si padece de alergia a algún medicamento \n
+			* Dele primera dosis de Amoxicilina inmediatamente.  Presentación: Jarabe de250 mg/5 ml\n
+			   - 2 a 11 meses; ½ cucharadita\n
+			   - 1 a 4 años: 1 cucharadita\n
+			   - 5 a 6 años 1 ½ cucharadita\n
+			* Recomiende  continuar el  con Amoxicilina tres veces al día o sea cada ocho horas por 5 días. \n
+			* Realice visita domiciliar y esté pendiente del estado de salud del niño o niña </string>
+    <string name="respuestamayor4">Este niño tiene Tos o catarro. \n
+			De consejería con lámina de tos y catarro. \n
+			- Realice visita domiciliar y esté pendiente del estado de salud del niño o niña. </string>
+    <string name="respuestamayor5">Este niño tiene deshidratación grave o Severa. De Suero oral de acuerdo a la edad \n
+			- Si es menor de 2 años dé media a 1 taza después de cada obrada. \n
+			- Si es mayor de 2 años dé de 1 a 2 tazas después de cada obrada. \n
+			\n
+			Refiéralo inmediatamente al establecimiento de salud </string>
+    <string name="respuestamayor6">Este niño tiene diarrea persistente.\n
+			De Suero oral de acuerdo a la edad \n
+			- Si es menor de 2 años dé media a 1 taza después de cada obrada. \n
+			- Si es mayor de 2 años dé de 1 a 2 tazas después de cada obrada. \n
+			\n
+			Refiéralo inmediatamente al establecimiento de salud </string>
+    <string name="respuestamayor7">Este niño tiene diarrea o pupú con moco y sangre\n
+			* De consejería con lámina de beneficios del suero oral, y que está haciendo con el niño con diarrea en la casa. Oriente a la familia sobre la higiene para esto utilice la lámina de prevención de la diarrea. \n
+			* De tabletas de Zinc.  Presentación Tabletas de 20 mg\n
+			\n
+			2 a 6 meses: ½ tableta\n
+			Mayor de 6 meses 1 tableta\n
+			\n
+			* De Furazolidona según edad cuatro veces al día o sea cada seis horas por 5 días. \n
+			   Presentación 50mg/5ml\n
+			   - 2 a 3 meses ½ cuchadita\n
+			   - 4 a 11 meses 1 cucharadita\n
+			   \n
+			1 a 4 años: 1 ½ cucharadita\n
+			5 a 6 años: dos cucharaditas\n
+			\n
+			Realice visita domiciliar y esté pendiente del estado de salud del niño </string>
+    <string name="respuestamayor8">Este niño tiene diarrea con deshidratación moderada\n
+			\n
+			- De consejería con lámina de beneficios del suero oral, y que está haciendo con el niño con diarrea en la casa. Oriente a la familia sobre la higiene para esto utilice la lámina de prevención de la diarrea. \n
+			- De tabletas de Zinc. Presentación tableta de20 mg\n
+			\n
+			2 a 6 meses: ½ tableta\n
+			Mayor de 6 meses 1 tableta\n
+			\n
+			- Realice visita domiciliar y esté pendiente del estado de salud del niño. \n
+			- Si frecuentemente tiene diarrea, referir \n
+			- Garantizar la adecuada administración del SRO antes de que regrese a la casa </string>
+    <string name="guardar">Guardar</string>
+    <string name="formatfecnacmimiento">dd-mm-aaaa</string>
+    <string name="edaddias">Edad (Días)</string>
+
+    <!-- visitas -->
+    <string name="title_activity_visitas">Visitas de Seguimiento</string>
+    <string name="primera_visita">Primera Visita</string>
+    <string name="fecha_visita">Fecha de la visita</string>
+    <string name="madre_cumplio_ref">Madre o familia cumplió con la referencia</string>
+    <string name="ninno_toma_dosis">El niño o niña está tomando la dosis indicada del medicamento (Recetado en establecimiento de salud)</string>
+    <string name="como_esta_nino">¿Cómo está el niño o niña?</string>
+    <string name="igual">Igual</string>
+    <string name="mejor">Mejor</string>
+    <string name="peor">Peor</string>
+    <string name="segunda_visita">Segunda Visita</string>
+    <string name="tercera_visita">Tercera Visita</string>
+    <string name="mejoro">Mejoró</string>
+    <string name="no_mejoro">No mejoró</string>
+    <string name="fallecio">Falleció</string>
+    <string name="title_activity_ninos_edit">NinosEditActivity</string>
+    <string name="title_activity_recomendaciones_menores">RecomendacionesMenoresActivity</string>
+
+    <string-array name="servidores">
+        <item>España</item>
+        <item>Estados Unidos</item>
+        <item>Italia</item>
+        <item>Reino Unido</item>
+    </string-array>
+    <string-array name="valores_servidor">
+        <item>spa</item>
+        <item>usa</item>
+        <item>ita</item>
+        <item>ukk</item>
+    </string-array>
+    <string-array name="valores_categorias">
+        <item>spa</item>
+        <item>usa</item>
+        <item>ita</item>
+        <item>ukk</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_usuarios">UsuariosActivity</string>
+    <string name="title_activity_casos_comunitarios_menores">CasosComunitariosMenoresActivity
+    </string>
+    <string name="title_activity_visita_ninos_menores">VisitaNinosMenoresActivity</string>
+    <string name="title_activity_casos_ninos">CasosNinosActivity</string>
+    <string name="title_activity_visita_ninos_mayores">VisitaNinosMayoresActivity</string>
+    <string name="title_activity_carga_archivos">CargaArchivosActivity</string>
+    <string name="title_activity_visor_pdf">VisorPDFActivity</string>
+    <string name="title_activity_list_ninos">ListNinosActivity</string>
+    <string name="title_activity_caso_menores">CasoMenoresActivity</string>
+    <string name="title_activity_list_caso_menores">ListCasoMenoresActivity</string>
+
+
+</resources>

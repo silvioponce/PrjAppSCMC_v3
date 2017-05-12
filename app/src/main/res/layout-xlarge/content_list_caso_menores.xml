@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.sci.sponce.prjappscmc.ListCasoMenoresActivity"
+    tools:showIn="@layout/activity_list_caso_menores">
+
+    <FrameLayout
+        android:id="@+id/contenedor_lista"
+        android:layout_width="512dp"
+        android:layout_height="574dp"
+        android:background="@android:color/white"
+        tools:layout_editor_absoluteY="17dp"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lista para Tablet" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/contenedor_detalle"
+        android:layout_width="752dp"
+        android:layout_height="583dp"
+        android:layout_toRightOf="@+id/contenedor_lista"
+        android:background="@android:color/white"
+        android:elevation="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="520dp" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detalle de Tablet" />
+    </FrameLayout>
+    
+
+</android.support.constraint.ConstraintLayout>

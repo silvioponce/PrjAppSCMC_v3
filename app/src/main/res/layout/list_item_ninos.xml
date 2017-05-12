@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:orientation="horizontal"
+    card_view:cardCornerRadius="5dp"
+
+    card_view:cardUseCompatPadding="true" >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="@dimen/margen_estandar"
+        android:layout_marginBottom="@dimen/margen_estandar">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout"
+            android:layout_margin="3dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Nombre del Contacto"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/viewNomNino"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorAccent" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Nomb Madre:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/textView"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+
+                    android:text="Telefono"
+                    android:id="@+id/viewNomMadre"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Fecha Nac:"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/textView3"
+                    android:textStyle="bold"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+
+                    android:text="21/09/1985"
+                    android:id="@+id/viewFechaNac"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Sexo: "
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/ViewText5"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+
+                    android:text="M"
+                    android:id="@+id/viewSexo"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Comun: "
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:id="@+id/textView5"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+
+                    android:text="Santa Cruz"
+                    android:id="@+id/viewComunidad"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="      Muni: "
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:id="@+id/textView6"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+
+                    android:text="Rancho Grande"
+                    android:id="@+id/viewMunicipio"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="      Depar: "
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:id="@+id/textView4"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+
+                    android:text="Matagalpa"
+                    android:id="@+id/viewDepartamento"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox android:id="@+id/cbxSincronizado"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+
+            android:clickable="false"
+            android:focusable="false"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,214 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sci.sponce.prjappscmc.Fragment.DetNinoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lblTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/datosgenerales"
+            android:textAppearance="?android:attr/textAppearanceSearchResultTitle" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"></View>
+
+        <Space
+            android:layout_width="20px"
+            android:layout_height="30px" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/spnDepartamento"
+            android:enabled="false"
+            android:clickable="false"
+            android:spinnerMode="dialog"
+            android:layout_gravity="center_vertical" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:enabled="false"
+            android:clickable="false"
+            android:id="@+id/spnMunicipio"
+            android:spinnerMode="dialog" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:enabled="false"
+            android:clickable="false"
+            android:id="@+id/spnComunidad"
+            android:spinnerMode="dialog" />
+
+        <EditText
+            android:id="@+id/txtNomBrigadista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:inputType="textPersonName"
+            android:enabled="false"
+            android:hint="@string/brigadista"
+            android:layout_marginTop="5dp">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/txtNomMadre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:inputType="textCapWords"
+            android:hint="@string/madre"
+            android:textAlignment="center">
+            <requestFocus />
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/txtNomNino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:inputType="textCapWords"
+            android:hint="@string/nombreninno" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <EditText
+                android:id="@+id/txtFecNac"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAlignment="center"
+                android:enabled="false"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/fecnacmimiento"
+                android:inputType="date"
+                android:layout_gravity="bottom|center_horizontal"
+                android:gravity="center_horizontal" />
+
+            <EditText
+                android:id="@+id/txtEdadMeses"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:enabled="false"
+                android:hint="@string/edadmeses"
+                android:inputType="numberDecimal"
+                android:layout_gravity="bottom|center_horizontal"
+                android:gravity="center_horizontal" />
+
+            <ImageButton
+                android:id="@+id/bt_fecnacmimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/continuar"
+
+                android:src="@android:drawable/ic_menu_my_calendar" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/sexoninno"
+                android:layout_gravity="center_vertical" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_F"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/f" />
+
+                <RadioButton
+                    android:id="@+id/radio_M"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/m" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pesonacer"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginTop="10dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_mayor2500"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="fill_parent"
+                android:checked="true"
+                android:layout_height="wrap_content"
+                android:text="@string/mayor2500" />
+
+            <RadioButton
+                android:id="@+id/radio_menor2500"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/menor2500" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"></View>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/btn_blue"
+            style="@style/ButtonText"
+            android:text="Guardar"
+            android:id="@+id/btnGuardarNino"
+            android:layout_marginTop="5dp" />
+
+    </LinearLayout>
+
+</FrameLayout>
