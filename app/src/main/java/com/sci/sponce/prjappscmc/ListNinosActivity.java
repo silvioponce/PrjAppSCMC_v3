@@ -36,6 +36,7 @@ public class ListNinosActivity extends AppCompatActivity implements ListNinosFra
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.contenedor_lista, ListNinosFragment.crear())
+
                 .commit();
     }
 

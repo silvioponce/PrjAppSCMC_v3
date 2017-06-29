@@ -87,7 +87,6 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
     int idDepartamentoPref, idMunicipioPref, idComunidadPref, idUsuarioPref;
 
 
-
     int idDepartamento, idMunicipio, idComunidad;
     int idPosicionDepartamento, idPosicionMunicipio, idPosicionComunidad;
 
@@ -128,9 +127,9 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
             if (getArguments().containsKey(ID)) {
                 // Cargar modelo según el identificador
-                idNino = getArguments().getString(ID);
+                idNino = String.valueOf(getArguments().getInt(ID));
 
-                if (idNino != null)
+                if (!idNino.equals("0"))
                     ModoEdit = true;
 
             }
@@ -388,14 +387,11 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
         int dato = (dateFinal.getMonth() - dateInicial.getMonth()) + ((dateFinal.getYear() - dateInicial.getYear()) * 12);
 
-        if ((dateInicial.getDate() - dateFinal.getDate()) < 0)
-        {
+        if ((dateInicial.getDate() - dateFinal.getDate()) < 0) {
             //dato = dato + 1;
-        }else
-        {
+        } else {
             dato = dato - 1;
         }
-
 
 
         txtEdadMeses.setText(String.valueOf(dato));
@@ -493,8 +489,12 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
         alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(getActivity(), ListNinosActivity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                Intent intent = new Intent(getActivity(), ListNinosActivity.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(intent);
             }
         });
         alertDialog.show();
@@ -668,13 +668,13 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
                             Intent intent = new Intent(getActivity(), ListNinosActivity.class);
 
 
-                            if(getResources().getBoolean(R.bool.esTablet)){
+                            if (getResources().getBoolean(R.bool.esTablet)) {
 
                                 getActivity().getFragmentManager().popBackStack();
                                 startActivity(new Intent(getActivity(), ListNinosActivity.class)
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
 
-                            }else{
+                            } else {
                                 startActivity(new Intent(getActivity(), ListNinosActivity.class)
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
 

@@ -394,7 +394,13 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
 
         try {
             int id;
-            id = ccmRecienNacidoBL.GuardarNino(getActivity(), ccmRecienNacido);
+
+            if (idCCMRecienNacido!=0){
+                ccmRecienNacidoBL.GuardarNino(getActivity(), ccmRecienNacido);
+                id = idCCMRecienNacido;
+            }else {
+                id = ccmRecienNacidoBL.GuardarNino(getActivity(), ccmRecienNacido);
+            }
 
             if (grupo != "ninguno") {
                 GuardarTratamiento(id);

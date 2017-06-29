@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ctxModificarCasoNinoMenor"
+        android:title="Modificar Caso"></item>
+    <item
+        android:id="@+id/ctxCrearNuevaVisitaMenores"
+        android:title="Crear Nueva Visita"></item>
+    <item
+        android:id="@+id/ctxVerVisitaMenores"
+        android:title="Listar Visitas del Niño(a)"></item>
+
+</menu>

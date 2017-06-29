@@ -1,0 +1,219 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sci.sponce.prjappscmc.Fragment.DetVisitaMenoresFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/datosgenerales"
+                android:textAppearance="?android:attr/textAppearanceSearchResultTitle" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="@android:color/darker_gray"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="3dp"></View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@drawable/list_item_text_selector"
+                android:text="Nombre del Niño"
+                android:id="@+id/txtnomNinoVisitaMenor"
+                android:layout_marginTop="5dp"
+                android:textSize="20dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtEnfermedadVisitaMenor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lugaratencion"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="14dp"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="3dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/txtTratamientoVisitaMenor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lugaratencion"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="11dp"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="3dp"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/txtFechaVisitaMenor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textAlignment="center"
+                    android:enabled="false"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/fecnacmimiento"
+                    android:inputType="date"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:gravity="center_horizontal" />
+
+                <ImageButton
+                    android:id="@+id/btnFechaVisitaMenor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:src="@android:drawable/ic_menu_my_calendar"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Madre o familia cumplió con la referencia:"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3" />
+
+                <ToggleButton
+                    android:id="@+id/tbn_CumpMedRect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textOff="@string/no"
+                    android:textOn="@string/si"
+
+                    android:layout_gravity="right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="@android:color/darker_gray"
+                android:paddingBottom="10dp"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="El niño o niña está tomando la dosis indicada del medicamento:"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3" />
+
+                <ToggleButton
+                    android:id="@+id/tbn_TomaDosisIndicada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textOff="@string/no"
+                    android:textOn="@string/si"
+                    android:layout_gravity="right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="@android:color/darker_gray"
+                android:paddingBottom="10dp"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estado del niño(a):"
+                    android:layout_gravity="center_vertical" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:id="@+id/spnResultadoVisita"
+                    android:spinnerMode="dialog" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="@android:color/darker_gray"
+                android:paddingBottom="10dp"></View>
+
+            <TextView
+                android:id="@+id/txtObservacionesVisitaMenor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Observaciones:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="14dp"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/txtObservaciones"
+                android:textSize="12dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_blue"
+                style="@style/ButtonText"
+                android:text="Guardar"
+                android:id="@+id/btnGuardarVisitaMenor"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</FrameLayout>
