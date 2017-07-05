@@ -259,6 +259,7 @@
     <string name="title_activity_list_caso_mayores">ListCasoMayoresActivity</string>
     <string name="title_activity_list_vista_menores">ListVistaMenoresActivity</string>
     <string name="title_activity_det_visita_mayores">DetVisitaMayoresActivity</string>
+    <string name="title_activity_list_visita_mayores">ListVisitaMayoresActivity</string>
 
 
 </resources>

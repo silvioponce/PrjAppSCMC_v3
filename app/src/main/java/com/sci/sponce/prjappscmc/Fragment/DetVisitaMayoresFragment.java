@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.sci.sponce.prjappscmc.ListVisitaMayoresActivity;
 import com.sci.sponce.prjappscmc.R;
 
 import java.sql.SQLException;
@@ -44,7 +46,7 @@ import Entidades.TratamientoRecienNacido;
 import Entidades.VisitasNinosMayor;
 
 
-public class DetVisitaMayoresFragment extends Fragment implements View.OnClickListener {
+public class DetVisitaMayoresFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,6 +66,7 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
 
     VisitasNinosMayorBL visitasNinosMayorBL = new VisitasNinosMayorBL();
 
+
     TratamientoNinoBL tratamientoNinoBL = new TratamientoNinoBL();
     TratamientoBL tratamientoBL = new TratamientoBL();
 
@@ -82,10 +85,13 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
     int idNino, idCCMNino, idUsuarioPref, idVisitaNino;
     Boolean modoEidt;
 
+
+
     public DetVisitaMayoresFragment() {
         // Required empty public constructor
     }
 
+    // TODO: Rename and change types and number of parameters
     public static DetVisitaMayoresFragment newInstance(String param1, String param2) {
         DetVisitaMayoresFragment fragment = new DetVisitaMayoresFragment();
         Bundle args = new Bundle();
@@ -101,6 +107,16 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            idNino = getArguments().getInt("idNino");
+            idCCMNino = getArguments().getInt("idCCMRecienNacido");
+
+            modoEidt = getArguments().getBoolean("modoEdit", false);
+
+            if (modoEidt) {
+                idVisitaNino = getArguments().getInt(ID);
+
+            }
         }
     }
 
@@ -111,7 +127,7 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
 
         View v = inflater.inflate(R.layout.fragment_det_visita_mayores, container, false);
 
-        /*inicializarComponentes(v);
+        inicializarComponentes(v);
 
         CargarPreferencias();
 
@@ -122,12 +138,12 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
         getActivity().setTitle("Visita Nino(a) 2 Meses");
 
         if (modoEidt)
-            CargarVisitaNinosMayores(idVisitaNino);*/
+            CargarVisitaNinosMayores(idVisitaNino);
 
         return v;
     }
 
-    /*private void inicializarComponentes(View v) {
+    private void inicializarComponentes(View v) {
         txtnomNinoVisitaNino = (TextView) v.findViewById(R.id.txtnomNinoVisitaNino);
         txtEnfermedadVisitaNino = (TextView) v.findViewById(R.id.txtEnfermedadVisitaNino);
         txtTratamientoVisitaNino = (TextView) v.findViewById(R.id.txtTratamientoVisitaNino);
@@ -172,7 +188,7 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
         });
 
 
-    }*/
+    }
 
     public void CargarDatosGenerales() {
 
@@ -348,7 +364,7 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-       /* switch (v.getId()) {
+        switch (v.getId()) {
             case R.id.btnGuardarVisitaNino:
 
                 if (verficaVisita())
@@ -362,11 +378,13 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
                 alertDialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         GuardarVisitaNino();
-                       *//* android.app.Fragment f = new android.app.Fragment();
+                        /*android.app.Fragment f = new android.app.Fragment();
                         f = new BuscarVisitasNinosMayores().newInstance(idCCMNino, false);
 
                         getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                        getFragmentManager().beginTransaction().replace(R.id.Contenedor, f, "BuscarVistaNinosMayores").addToBackStack(null).commit();*//*
+                        getFragmentManager().beginTransaction().replace(R.id.Contenedor, f, "BuscarVistaNinosMayores").addToBackStack(null).commit();*/
+                        startActivity(new Intent(getActivity(), ListVisitaMayoresActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
 
                     }
                 });
@@ -382,6 +400,7 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
             case R.id.btnFechaVisitaMenor:
                 setDate();
                 break;
-        }*/
+        }
+
     }
 }

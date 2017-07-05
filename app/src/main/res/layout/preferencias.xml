@@ -63,8 +63,8 @@
             android:icon="@mipmap/ic_visitas">
 
             <intent
-                android:targetPackage="com.sci.sponce.prjscmcapp"
-                android:targetClass="com.sci.sponce.prjscmcapp.VisitaNinosMayoresActivity" />
+                android:targetPackage="com.sci.sponce.prjappscmc"
+                android:targetClass="com.sci.sponce.prjappscmc.ListVisitaMayoresActivity" />
         </Preference>
 
     </PreferenceCategory>

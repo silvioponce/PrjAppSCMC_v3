@@ -19,22 +19,19 @@ public class DetVisitaMayoresActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        if (savedInstanceState == null) {
-            // Añadir fragmento de detalle
-            Bundle arguments = new Bundle();
-            arguments.putInt(DetVisitaMayoresFragment.ID, getIntent().getIntExtra(DetVisitaMayoresFragment.ID, 0));
-            arguments.putInt("idCCMRecienNacido", getIntent().getIntExtra("idCCMRecienNacido", 0));
-            arguments.putInt("idNino", getIntent().getIntExtra("idCCMRecienNacido", 0));
-            arguments.putBoolean("modoEdit", getIntent().getBooleanExtra("modoEdit", false));
+        Bundle arguments = new Bundle();
+        arguments.putInt(DetVisitaMayoresFragment.ID, getIntent().getIntExtra(DetVisitaMayoresFragment.ID, 0));
+        arguments.putInt("idCCMRecienNacido", getIntent().getIntExtra("idCCMRecienNacido", 0));
+        arguments.putInt("idNino", getIntent().getIntExtra("idCCMRecienNacido", 0));
+        arguments.putBoolean("modoEdit", getIntent().getBooleanExtra("modoEdit", false));
 
 
 
-            DetVisitaMayoresFragment fragment = new DetVisitaMayoresFragment();
-            fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.contenedor_detalle, fragment)
-                    .commit();
-        }
+        DetVisitaMayoresFragment fragment = new DetVisitaMayoresFragment();
+        fragment.setArguments(arguments);
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.contenedor_detalle, fragment)
+                .commit();
     }
 
 }
