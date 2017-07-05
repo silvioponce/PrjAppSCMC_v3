@@ -29,12 +29,12 @@ public class ListVisitaMayoresActivity extends AppCompatActivity implements List
 
         // Agregar fragmento de lista
 
-        //Bundle bundle = new Bundle();
+        Bundle bundle = new Bundle();
 
-        //bundle.putString("IdNino", IdNino);
+        bundle.putString("IdNino", IdNino);
 
         ListVisitaMayoresFragment frag = new ListVisitaMayoresFragment();
-        //frag.setArguments(bundle);
+        frag.setArguments(bundle);
 
         getSupportFragmentManager()
                 .beginTransaction()

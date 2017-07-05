@@ -20,6 +20,7 @@ import android.widget.ListView;
 import com.sci.sponce.prjappscmc.DetCasoMenoresActivity;
 import com.sci.sponce.prjappscmc.DetVisitaMenoresActivity;
 import com.sci.sponce.prjappscmc.ListCasoMenoresActivity;
+import com.sci.sponce.prjappscmc.ListVistaMenoresActivity;
 import com.sci.sponce.prjappscmc.R;
 
 import java.sql.SQLException;
@@ -143,6 +144,13 @@ public class ListCasoMenoresFragment extends Fragment implements View.OnClickLis
             }
         });
 
+        getActivity().setTitle("Caso Nino(a) Menores");
+
+        if (idNino>0){
+            txtBuscarCasoNinoMenores.setVisibility(View.GONE);
+            btnBuscarCasoNinoMenores.setVisibility(View.GONE);
+        }
+
         registerForContextMenu(lstCasoNinosMenores);
 
         return view;
@@ -239,6 +247,12 @@ public class ListCasoMenoresFragment extends Fragment implements View.OnClickLis
 
                 //getFragmentManager().beginTransaction().replace(R.id.Contenedor, new BuscarVisitaNinosMenores().newInstance(selectedItem, false), "BuscarVistaNinosMenores").addToBackStack(null).commit();
                 //Toast.makeText(getActivity(), "Lista[" + info.position + " " + selectedItem + ": Opcion 1 pulsada!",Toast.LENGTH_SHORT).show();
+
+                Intent intent2 = new Intent(getActivity(), ListVistaMenoresActivity.class);
+                intent2.putExtra("IdNino", String.valueOf(selectedItem));
+                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent2);
                 return true;
 
             default:

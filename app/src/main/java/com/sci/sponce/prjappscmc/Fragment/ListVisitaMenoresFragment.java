@@ -83,6 +83,12 @@ public class ListVisitaMenoresFragment extends Fragment implements View.OnClickL
             idCCMRecienNacido = getArguments().getInt(ARG_PARAM1);
             mParam2 = getArguments().getBoolean(ARG_PARAM2);
         }
+
+        if(getArguments().getString("IdNino")!=null)
+            idCCMRecienNacido = Integer.parseInt(getArguments().getString("IdNino"));
+
+
+
     }
 
     @Override
@@ -114,7 +120,7 @@ public class ListVisitaMenoresFragment extends Fragment implements View.OnClickL
         adapter = new VisitaNinosMenoresAdapter(getActivity(), arrayOfVisitasNinosMenor);
         lstVistaNinosMenores.setAdapter(adapter);
 
-        if (!mParam2){
+        if (idCCMRecienNacido > 0){
             txtBuscarVisitaNinoMenores.setVisibility(View.GONE);
             btnBuscarVisitaNinoMenores.setVisibility(View.GONE);
         }

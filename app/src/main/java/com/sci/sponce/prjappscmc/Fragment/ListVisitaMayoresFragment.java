@@ -35,7 +35,7 @@ import Entidades.VisitasNinosMayor;
  * Use the {@link ListVisitaMayoresFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListVisitaMayoresFragment extends Fragment {
+public class ListVisitaMayoresFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -90,6 +90,9 @@ public class ListVisitaMayoresFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        if(getArguments().getString("IdNino")!=null)
+            idCCMNino = Integer.parseInt(getArguments().getString("IdNino"));
     }
 
     @Override
@@ -101,10 +104,10 @@ public class ListVisitaMayoresFragment extends Fragment {
 
         lstVistaNinosMayores = (ListView) view.findViewById(R.id.lstVisitaNinosMayores);
 
-/*        txtBuscarVisitaNinoMayores = (EditText) view.findViewById(R.id.txtBuscarVisitaNinoMayores);
+        txtBuscarVisitaNinoMayores = (EditText) view.findViewById(R.id.txtBuscarVisitaNinoMayores);
         btnBuscarVisitaNinoMayores = (ImageButton) view.findViewById(R.id.btnBuscarVisitaNinoMayores);
 
-        btnBuscarVisitaNinoMayores.setOnClickListener(this);*/
+        btnBuscarVisitaNinoMayores.setOnClickListener(this);
 
         arrayOfVisitasNinosMayor = new ArrayList<VisitasNinosMayor>();
         try {
@@ -126,13 +129,24 @@ public class ListVisitaMayoresFragment extends Fragment {
 
         registerForContextMenu(lstVistaNinosMayores);
 
-/*        if (!mParam2){
+        if (idCCMNino > 0){
             txtBuscarVisitaNinoMayores.setVisibility(View.GONE);
             btnBuscarVisitaNinoMayores.setVisibility(View.GONE);
-        }*/
+        }
 
 
         return  view;
+    }
+
+    private void BuscarVisitaNinosMayores() {
+        arrayOfVisitasNinosMayor = new ArrayList<VisitasNinosMayor>();
+        try {
+            arrayOfVisitasNinosMayor = visitasNinosMayorBL.getAllVisitasNinosMayoresArrayListCustomNomNino(getActivity(), txtBuscarVisitaNinoMayores.getText().toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        adapter = new VisitaNinosMayoresAdapter(getActivity(), arrayOfVisitasNinosMayor);
+        lstVistaNinosMayores.setAdapter(adapter);
     }
 
     @Override
@@ -215,16 +229,18 @@ public class ListVisitaMayoresFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnBuscarVisitaNinoMayores:
+                BuscarVisitaNinosMayores();
+
+            default:
+                return;
+        }
+
+    }
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
