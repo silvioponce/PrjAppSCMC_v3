@@ -256,6 +256,10 @@
     <string name="title_activity_list_ninos">ListNinosActivity</string>
     <string name="title_activity_caso_menores">CasoMenoresActivity</string>
     <string name="title_activity_list_caso_menores">ListCasoMenoresActivity</string>
+    <string name="title_activity_list_caso_mayores">ListCasoMayoresActivity</string>
+    <string name="title_activity_list_vista_menores">ListVistaMenoresActivity</string>
+    <string name="title_activity_det_visita_mayores">DetVisitaMayoresActivity</string>
+    <string name="title_activity_list_visita_mayores">ListVisitaMayoresActivity</string>
 
 
 </resources>

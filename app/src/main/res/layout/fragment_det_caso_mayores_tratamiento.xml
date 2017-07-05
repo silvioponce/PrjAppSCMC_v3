@@ -1,0 +1,229 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sci.sponce.prjappscmc.Fragment.DetCasoMayoresTratamientoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I. Tratamiento"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceSearchResultTitle" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="@android:color/darker_gray"
+                android:paddingBottom="10dp"></View>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@drawable/list_item_text_selector"
+                    android:text="Clasifificacion de la Enfermedad"
+                    android:id="@+id/lblClasificacionEnfermedad"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/lblAmoxicilina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amoxicilina"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
+                android:visibility="gone"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="15dp" />
+
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:visibility="gone"
+                android:id="@+id/spnPreguntaAmoxicilina"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:id="@+id/lblSuero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Suero Oral"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
+                android:visibility="gone"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="3dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:visibility="gone"
+                android:id="@+id/spnPreguntaSuero"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:id="@+id/lblZinc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tabletas de Zinc"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="3dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:visibility="gone"
+                android:id="@+id/spnPreguntaZinc"
+                android:spinnerMode="dialog" />
+
+
+            <TextView
+                android:id="@+id/lblFurazolidona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Furazolidona"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="3dp" />
+
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="28dp"
+                android:id="@+id/spnPreguntaFurazolidona"
+                android:spinnerMode="dialog" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="@android:color/darker_gray"
+                android:paddingBottom="10dp"></View>
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recomendaciones"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="3dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:enabled="false"
+                android:ems="10"
+                android:id="@+id/txtRecomendacionesNino"
+                android:textSize="12dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Entrego Referencia"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/list_item_text_selector"
+                    android:textStyle="bold"
+                    android:layout_weight="3" />
+
+                <ToggleButton
+                    android:id="@+id/tbn_entregoReferenciaNino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textOff="@string/no"
+                    android:textOn="@string/si"
+
+                    android:layout_gravity="right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="@android:color/darker_gray"
+                android:paddingBottom="10dp"></View>
+
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Observaciones"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
+                android:textColor="@drawable/list_item_text_selector"
+                android:layout_marginTop="3dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/txtObservacionesNinos"
+                android:textSize="12dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_blue"
+                style="@style/ButtonText"
+                android:text="Guardar"
+                android:id="@+id/btnGuardarCasoNino"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</FrameLayout>

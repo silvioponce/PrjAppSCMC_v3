@@ -16,8 +16,10 @@ public class DetNinoActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Añadir fragmento de detalle
             Bundle arguments = new Bundle();
-            arguments.putString(DetNinoFragment.ID,
-                    getIntent().getStringExtra(DetNinoFragment.ID));
+            arguments.putInt(DetNinoFragment.ID,
+                    getIntent().getIntExtra(DetNinoFragment.ID, 0));
+
+
             DetNinoFragment fragment = new DetNinoFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

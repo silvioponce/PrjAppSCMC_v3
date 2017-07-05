@@ -105,7 +105,7 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
             idNino = Id;
 
             if (Boolean.valueOf(getArguments().getString("modoEdit"))) {
-                idCCMRecienNacido = getArguments().getInt("idCCMRecienNacido");
+                idCCMRecienNacido = Integer.parseInt(getArguments().getString("idCCMRecienNacido"));
                 ModoEdit = true;
             }
 
@@ -576,7 +576,7 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
         calendarFechaNacNino.setTime(dateFechaNac);
 
         updateDate();
-        int meses = obtenerMeses(date, dateFechaNac);
+        int meses = obtenerMeses(dateFechaNac, date);
 
         edt_fecatencion_Meses.setText(String.valueOf(meses));
 

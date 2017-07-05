@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sci.sponce.prjappscmc.DetCasoMayoresActivity;
 import com.sci.sponce.prjappscmc.DetCasoMenoresActivity;
 import com.sci.sponce.prjappscmc.DetNinoActivity;
 import com.sci.sponce.prjappscmc.ListCasoMenoresActivity;
@@ -116,6 +117,8 @@ public class ListNinosFragment extends Fragment implements View.OnClickListener 
         txtBuscar = (EditText) v.findViewById(R.id.txtBuscar);
         btnBuscar = (ImageButton) v.findViewById(R.id.btnBuscar);
 
+        btnBuscar.setOnClickListener(this);
+
         lista.setSelected(true);
 
         getActivity().setTitle("Buscar Nino(a)");
@@ -177,7 +180,7 @@ public class ListNinosFragment extends Fragment implements View.OnClickListener 
                 selectedItem = adapter.getItem(info.position).get_id();
 
                 Intent intent = new Intent(getContext(), DetNinoActivity.class);
-                intent.putExtra(DetNinoFragment.ID, String.valueOf(selectedItem));
+                intent.putExtra(DetNinoFragment.ID, selectedItem);
                 startActivity(intent);
 
                 return true;
@@ -204,6 +207,12 @@ public class ListNinosFragment extends Fragment implements View.OnClickListener 
                     startActivity(inten);
                     //getFragmentManager().beginTransaction().replace(R.id.Contenedor, new CasoNinosMenoresFragment().newInstance(selectedItem), "CasoNinosMenores").addToBackStack(null).commit();
                 } else {
+                    Intent inten = new Intent(getActivity(), DetCasoMayoresActivity.class);
+                    inten.putExtra(DetCasoMayoresFragment.ID, selectedItem);
+                    inten.putExtra("modoEdit", false);
+                    inten.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    inten.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(inten);
                     //getFragmentManager().beginTransaction().replace(R.id.Contenedor, new CatCasoNinosFragment().newInstance(selectedItem, 0, false), "CatCasoNinos").addToBackStack(null).commit();
                 }
 
@@ -309,7 +318,24 @@ public class ListNinosFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnBuscar:
+                BuscarUsuarios();
 
+            default:
+                return;
+        }
+    }
+
+    public void BuscarUsuarios() {
+        arrayOfNinos = new ArrayList<Nino>();
+        try {
+            arrayOfNinos = ninoBL.getAllNinosByName(getActivity(), txtBuscar.getText().toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        adapter = new NinosAdapter(getActivity(), arrayOfNinos);
+        lista.setAdapter(adapter);
     }
 
     /**

@@ -38,8 +38,8 @@
             android:icon="@mipmap/ic_registrar2">
 
             <intent
-                android:targetPackage="com.sci.sponce.prjscmcapp"
-                android:targetClass="com.sci.sponce.prjscmcapp.CasosNinosActivity" />
+                android:targetPackage="com.sci.sponce.prjappscmc"
+                android:targetClass="com.sci.sponce.prjappscmc.ListCasoMayoresActivity" />
         </Preference>
 
 
@@ -53,8 +53,8 @@
             android:icon="@mipmap/ic_visitas">
 
             <intent
-                android:targetPackage="com.sci.sponce.prjscmcapp"
-                android:targetClass="com.sci.sponce.prjscmcapp.VisitaNinosMenoresActivity" />
+                android:targetPackage="com.sci.sponce.prjappscmc"
+                android:targetClass="com.sci.sponce.prjappscmc.ListVistaMenoresActivity" />
         </Preference>
 
         <Preference
@@ -63,8 +63,8 @@
             android:icon="@mipmap/ic_visitas">
 
             <intent
-                android:targetPackage="com.sci.sponce.prjscmcapp"
-                android:targetClass="com.sci.sponce.prjscmcapp.VisitaNinosMayoresActivity" />
+                android:targetPackage="com.sci.sponce.prjappscmc"
+                android:targetClass="com.sci.sponce.prjappscmc.ListVisitaMayoresActivity" />
         </Preference>
 
     </PreferenceCategory>

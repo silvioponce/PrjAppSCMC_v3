@@ -20,11 +20,11 @@ public class TratamientoRecienNacidoBL {
 
         Boolean existe = false;
 
-        existe = tratamientoRecienNacidoDao.getExisteTratamientoRecienNacidoByCustomer(context, "_id = " + String.valueOf(tratamientoRecienNacido.get_id()));
+        existe = tratamientoRecienNacidoDao.getExisteTratamientoRecienNacidoByCustomer(context, "IdCCMRecienNacido = " + String.valueOf(tratamientoRecienNacido.getIdCCMRecienNacido()));
 
         if (existe) {
             idTratamientoRecienNacido = tratamientoRecienNacidoDao.getTratamientoRecienNacidoByCustomer(context, "IdCCMRecienNacido = " + String.valueOf(tratamientoRecienNacido.getIdCCMRecienNacido())).get_id();
-            tratamientoRecienNacido.setIdTratamientoReciendNacido(idTratamientoRecienNacido);
+            //tratamientoRecienNacido.setIdTratamientoReciendNacido(idTratamientoRecienNacido);
             resultado = tratamientoRecienNacidoDao.actualizarTratamientoRecienNacido(context, tratamientoRecienNacido);
 
         } else {

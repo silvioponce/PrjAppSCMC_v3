@@ -41,7 +41,25 @@
             android:name=".ListCasoMenoresActivity"
             android:label="@string/title_activity_list_caso_menores"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".DetCasoMenoresActivity"></activity>
+        <activity android:name=".DetCasoMenoresActivity" />
+        <activity
+            android:name=".ListCasoMayoresActivity"
+            android:label="@string/title_activity_list_caso_mayores"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DetCasoMayoresActivity" />
+        <activity
+            android:name=".ListVistaMenoresActivity"
+            android:label="@string/title_activity_list_vista_menores"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DetVisitaMenoresActivity" />
+        <activity
+            android:name=".DetVisitaMayoresActivity"
+            android:label="@string/title_activity_det_visita_mayores"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListVisitaMayoresActivity"
+            android:label="@string/title_activity_list_visita_mayores"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
