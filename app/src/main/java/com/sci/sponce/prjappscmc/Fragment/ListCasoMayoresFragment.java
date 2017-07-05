@@ -18,6 +18,7 @@ import android.widget.ListView;
 
 import com.sci.sponce.prjappscmc.DetCasoMayoresActivity;
 import com.sci.sponce.prjappscmc.DetVisitaMayoresActivity;
+import com.sci.sponce.prjappscmc.ListVisitaMayoresActivity;
 import com.sci.sponce.prjappscmc.R;
 
 import java.sql.SQLException;
@@ -132,10 +133,10 @@ public class ListCasoMayoresFragment extends Fragment implements View.OnClickLis
 
         registerForContextMenu(lstCasoNinos);
 
-/*        if (!mParam2){
+        if (idNino>0){
             txtBuscarCasoNino.setVisibility(View.GONE);
             btnBuscarCasoNino.setVisibility(View.GONE);
-        }*/
+        }
 
         return view;
     }
@@ -202,6 +203,12 @@ public class ListCasoMayoresFragment extends Fragment implements View.OnClickLis
 
                 //getFragmentManager().beginTransaction().replace(R.id.Contenedor, new BuscarVisitasNinosMayores().newInstance(selectedItem, false), "BuscarVistaNinosMayores").addToBackStack(null).commit();
                 //Toast.makeText(getActivity(), "Lista[" + info.position + " " + selectedItem + ": Opcion 1 pulsada!",Toast.LENGTH_SHORT).show();
+
+                Intent intent2 = new Intent(getActivity(), ListVisitaMayoresActivity.class);
+                intent2.putExtra("IdNino", String.valueOf(selectedItem));
+                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent2);
                 return true;
 
             default:

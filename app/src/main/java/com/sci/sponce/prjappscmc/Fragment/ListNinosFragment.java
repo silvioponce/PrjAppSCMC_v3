@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.sci.sponce.prjappscmc.DetCasoMayoresActivity;
 import com.sci.sponce.prjappscmc.DetCasoMenoresActivity;
 import com.sci.sponce.prjappscmc.DetNinoActivity;
+import com.sci.sponce.prjappscmc.ListCasoMayoresActivity;
 import com.sci.sponce.prjappscmc.ListCasoMenoresActivity;
 import com.sci.sponce.prjappscmc.R;
 
@@ -245,7 +246,11 @@ public class ListNinosFragment extends Fragment implements View.OnClickListener 
             flag = ccmRecienNacidoBL.getExisteCCMRecienNacidoByCustomer(getActivity(), "IdNino = " + idNino);
             flag2 = ccmNinoBL.getExisteCCMNinoByCustomer(getActivity(), "IdNino = " + idNino);
             if (flag && flag2) {
-                showDialog();
+                Intent intent = new Intent(getActivity(), ListCasoMayoresActivity.class);
+                intent.putExtra("IdNino", String.valueOf(selectedItem));
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
                 return;
             }
 
