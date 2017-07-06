@@ -152,7 +152,7 @@ public class SQLiteHelper extends SQLiteOpenHelper
         try {
             final URL url = new URL("http://www.google.com");
             final HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
-            urlConn.setConnectTimeout(200); // mTimeout is in seconds
+            urlConn.setConnectTimeout(5000); // mTimeout is in seconds
             final long startTime = System.currentTimeMillis();
             urlConn.connect();
             final long endTime = System.currentTimeMillis();

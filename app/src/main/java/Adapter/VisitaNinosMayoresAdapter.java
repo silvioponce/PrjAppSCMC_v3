@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import BL.CCMNinoBL;
 import BL.TratamientoBL;
 import BL.TratamientoNinoBL;
 import DAO.CCMNinoDao;
@@ -37,6 +38,7 @@ public class VisitaNinosMayoresAdapter extends ArrayAdapter<VisitasNinosMayor> {
     CCMNinoDao ccmNinoDao = new CCMNinoDao();
     TratamientoNinoBL tratamientoNinoBL = new TratamientoNinoBL();
     TratamientoBL tratamientoBL = new TratamientoBL();
+    CCMNinoBL ccmNinoBL = new CCMNinoBL();
 
     public VisitaNinosMayoresAdapter(Context context, ArrayList<VisitasNinosMayor> visitasNinosMayores) {
         super(context, 0, visitasNinosMayores);
@@ -94,6 +96,8 @@ public class VisitaNinosMayoresAdapter extends ArrayAdapter<VisitasNinosMayor> {
         } else {
             viewTratmientoVisitaMenor.setText(strTratamiento);
         }
+
+        viewEnfermedadVisitaMenor.setText(ccmNinoBL.clasificarEnfermedad(ccmNino));
 
         if (visitasNinosMayor.getIdVisita() != 0) {
             cbxSincronizadoVisitaNinosMenores.setChecked(true);

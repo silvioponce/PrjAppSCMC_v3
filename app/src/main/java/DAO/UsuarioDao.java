@@ -511,7 +511,7 @@ public class UsuarioDao {
             myDbHelper.openDataBase();
             myDataBase = myDbHelper.getWritableDatabase();
 
-            if (myDataBase.update(Usuario.TABLE_NAME, UsuarioCV(usuario), "_IdUsuario = " + usuario.getIdUsuario(), null) != -1)
+            if (myDataBase.update(Usuario.TABLE_NAME, UsuarioCV(usuario), "IdUsuario = " + usuario.getIdUsuario(), null) != -1)
                 flag = true;
 
         } catch (Exception ex) {

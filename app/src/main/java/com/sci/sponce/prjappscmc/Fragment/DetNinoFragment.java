@@ -23,6 +23,8 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.sci.sponce.prjappscmc.DetCasoMayoresActivity;
+import com.sci.sponce.prjappscmc.DetCasoMenoresActivity;
 import com.sci.sponce.prjappscmc.ListNinosActivity;
 import com.sci.sponce.prjappscmc.R;
 
@@ -479,9 +481,23 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
                 //Toast.makeText(getActivity(), String.valueOf((int) meses), Toast.LENGTH_SHORT).show();
 
                 if (meses < 2) {
+
                     //getFragmentManager().beginTransaction().replace(R.id.Contenedor, new CasoNinosMenoresFragment().newInstance(Integer.parseInt(idNino)), "CasoNinosMenores").addToBackStack(null).commit();
+                    Intent inten = new Intent(getActivity(), DetCasoMenoresActivity.class);
+                    inten.putExtra(DetCasoMenoresFragment.ID, String.valueOf(idNino));
+                    inten.putExtra("modoEdit", false);
+                    inten.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    inten.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(inten);
                 } else {
+
                     //getFragmentManager().beginTransaction().replace(R.id.Contenedor, new CatCasoNinosFragment().newInstance(Integer.parseInt(idNino), 0, false), "CatCasoNinos").addToBackStack(null).commit();
+                    Intent inten = new Intent(getActivity(), DetCasoMayoresActivity.class);
+                    inten.putExtra(DetCasoMayoresFragment.ID, idNino);
+                    inten.putExtra("modoEdit", false);
+                    inten.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    inten.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(inten);
                 }
 
             }
@@ -646,7 +662,8 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
                     alertDialog1.setIcon(R.mipmap.ic_save);
                     alertDialog1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
+                            startActivity(new Intent(getActivity(), ListNinosActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
 
                         }
                     });

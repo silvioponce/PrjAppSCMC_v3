@@ -260,6 +260,7 @@
     <string name="title_activity_list_vista_menores">ListVistaMenoresActivity</string>
     <string name="title_activity_det_visita_mayores">DetVisitaMayoresActivity</string>
     <string name="title_activity_list_visita_mayores">ListVisitaMayoresActivity</string>
+    <string name="title_activity_carga_datos">CargaDatosActivity</string>
 
 
 </resources>

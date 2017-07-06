@@ -466,7 +466,7 @@ public class DetCasoMayoresTratamientoFragment extends Fragment implements View.
         VisitasNinosMayorBL visitasNinosMayorBL = new VisitasNinosMayorBL();
 
         try {
-            flag = visitasNinosMayorBL.getExisteVisitasNinosMayorByCustomer(getActivity(), "IdCCMNino = " + ccmNino.getIdCCMNino());
+            flag = visitasNinosMayorBL.getExisteVisitasNinosMayorByCustomer(getActivity(), "IdCCMNino = " + ccmNino.get_id());
 
             if (flag)
                 strMensaje = "El Caso del Niño no se puede actualizar, por que tiene una Visita Registrado";
@@ -490,6 +490,12 @@ public class DetCasoMayoresTratamientoFragment extends Fragment implements View.
 
                         getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         getFragmentManager().beginTransaction().replace(R.id.Contenedor, f, "BuscarCasoNinos").addToBackStack(null).commit();*/
+
+                        Intent intent = new Intent(getActivity(), ListCasoMayoresActivity.class);
+                        //intent.putExtra(DetCasoMenoresFragment.ID, 0);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        startActivity(intent);
 
                     }
                 });

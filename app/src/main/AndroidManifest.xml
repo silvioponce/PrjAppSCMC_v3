@@ -57,6 +57,10 @@
         <activity
             android:name=".ListVisitaMayoresActivity"
             android:label="@string/title_activity_list_visita_mayores"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CargaDatosActivity"
+            android:label="@string/title_activity_carga_datos"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

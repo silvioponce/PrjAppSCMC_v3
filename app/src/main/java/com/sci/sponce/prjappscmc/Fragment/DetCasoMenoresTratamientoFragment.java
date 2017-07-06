@@ -617,7 +617,11 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
                 alertDialog1.setIcon(R.mipmap.ic_save);
                 alertDialog1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
+                        Intent intent = new Intent(getActivity(), ListCasoMenoresActivity.class);
+                        //intent.putExtra(DetCasoMenoresFragment.ID, 0);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        startActivity(intent);
 
                     }
                 });
