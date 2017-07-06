@@ -36,4 +36,8 @@ public class NinoBL {
     public Nino getNinoById(Context context, String IdNino) throws SQLException {
         return ninoDao.getNinoById(context, IdNino);
     }
+
+    public boolean getExisteNinoByCustomer(Context context, String parametro)throws SQLException {
+        return ninoDao.getExisteNinoByCustomer(context, parametro);
+    }
 }

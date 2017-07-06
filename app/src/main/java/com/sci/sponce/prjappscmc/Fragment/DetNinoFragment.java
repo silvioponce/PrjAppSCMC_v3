@@ -57,6 +57,8 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
     public static String ID = "extra.id";
 
+    private String strMensaje = "";
+
     Nino nino = new Nino();
     NinoBL ninoBL = new NinoBL();
 
@@ -628,16 +630,32 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
     private boolean verficaCaso() {
         boolean flag = false;
+        boolean flag2 = false;
 
         CCMRecienNacidoBL ccmRecienNacidoBL = new CCMRecienNacidoBL();
         CCMNinoBL ccmNinoBL = new CCMNinoBL();
 
+
         try {
-            flag = ccmRecienNacidoBL.getExisteCCMRecienNacidoByCustomer(getActivity(), "IdNino = " + idNino);
-            if (flag)
+            nino = ninoBL.getNinoById(getActivity(), idNino);
+            if (nino.getIdNino()>0){
+                strMensaje = "El Niño no se puede actualizar, por que ya esta guardado en el Servidor";
                 return true;
+            }
+
+
+            flag = ccmRecienNacidoBL.getExisteCCMRecienNacidoByCustomer(getActivity(), "IdNino = " + idNino);
+            if (flag) {
+                strMensaje = "El Niño no se puede actualizar, por que tiene un Caso Registrado";
+                return true;
+            }
 
             flag = ccmNinoBL.getExisteCCMNinoByCustomer(getActivity(), "IdNino = " + idNino);
+            if (flag) {
+                strMensaje = "El Niño no se puede actualizar, por que tiene un Caso Registrado";
+                return true;
+            }
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -658,7 +676,7 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
                     AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(getActivity());
 
                     alertDialog1.setTitle("Informacion...");
-                    alertDialog1.setMessage("El Niño no se puede actualizar, por que tiene un Caso Registrado");
+                    alertDialog1.setMessage(strMensaje);
                     alertDialog1.setIcon(R.mipmap.ic_save);
                     alertDialog1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
