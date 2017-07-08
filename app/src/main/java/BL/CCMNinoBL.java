@@ -21,9 +21,9 @@ public class CCMNinoBL {
         }
     }
 
-    public ArrayList<CCMNino> getAllCCMNinosArrayListCustom(Context context, String parametro) throws SQLException {
+    public ArrayList<CCMNino> getAllCCMNinosArrayListCustom(Context context, String strWhere, String strOrderBy) throws SQLException {
 
-        return ccmNinoDao.getAllCCMNinosArrayListCustom(context, parametro);
+        return ccmNinoDao.getAllCCMNinosArrayListCustom(context, strWhere, strOrderBy);
     }
 
     public ArrayList<CCMNino> getAllCCMNinosArrayList(Context context) throws SQLException {
@@ -183,10 +183,10 @@ public class CCMNinoBL {
         return ccmNinoDao.getExisteCCMNinoByCustomer(context, parametro);
     }
 
-    public ArrayList<CCMNino> getAllCCMNinosArrayListByName(Context context, String parametro) throws SQLException {
+    public ArrayList<CCMNino> getAllCCMNinosArrayListByName(Context context, String strWhere, String strOrderBy) throws SQLException {
 
         return ccmNinoDao.getAllCCMNinosArrayListCustom(context, "IdNino in (\n" +
-                "select _id from ninos where NomNino like '%"+ parametro +"%')");
+                "select _id from ninos where NomNino like '%"+ strWhere +"%')", strOrderBy);
     }
 
 }

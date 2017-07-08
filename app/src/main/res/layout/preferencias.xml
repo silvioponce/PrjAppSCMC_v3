@@ -74,9 +74,11 @@
         <Preference
 
             android:title="Manual de Usuario"
-            android:key="prueba"
-            android:icon="@mipmap/ic_pdf_view">
 
+            android:icon="@mipmap/ic_pdf_view">
+            <intent
+                android:targetPackage="com.sci.sponce.prjappscmc"
+                android:targetClass="com.sci.sponce.prjappscmc.ViewPDFActivity" />
 
         </Preference>
 

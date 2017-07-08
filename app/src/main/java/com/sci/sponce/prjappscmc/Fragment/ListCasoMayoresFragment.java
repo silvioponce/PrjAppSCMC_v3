@@ -111,7 +111,7 @@ public class ListCasoMayoresFragment extends Fragment implements View.OnClickLis
         try {
 
             if (idNino>0){
-                arrayOfCasoNinos = ccmNinoBL.getAllCCMNinosArrayListCustom(getActivity(), "IdNino = " + idNino);
+                arrayOfCasoNinos = ccmNinoBL.getAllCCMNinosArrayListCustom(getActivity(), "IdNino = " + idNino, "_id");
             }else {
                 arrayOfCasoNinos = ccmNinoBL.getAllCCMNinosArrayList(getActivity());
             }
@@ -220,7 +220,7 @@ public class ListCasoMayoresFragment extends Fragment implements View.OnClickLis
     private void BuscarCasoNinosMayores() {
         arrayOfCasoNinos = new ArrayList<CCMNino>();
         try {
-            arrayOfCasoNinos = ccmNinoBL.getAllCCMNinosArrayListByName(getActivity(), txtBuscarCasoNino.getText().toString());
+            arrayOfCasoNinos = ccmNinoBL.getAllCCMNinosArrayListByName(getActivity(), txtBuscarCasoNino.getText().toString(), "_id");
         } catch (SQLException e) {
             e.printStackTrace();
         }

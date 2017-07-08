@@ -398,7 +398,7 @@ public class CCMRecienNacidoDao {
         return list;
     }
 
-    public static ArrayList<CCMRecienNacido> getAllCCMRecienNacidosArrayListCustom(Context context, String parametro) throws SQLException {
+    public static ArrayList<CCMRecienNacido> getAllCCMRecienNacidosArrayListCustom(Context context, String parametro, String orderBy) throws SQLException {
         ArrayList<CCMRecienNacido> list = new ArrayList<CCMRecienNacido>();
         SQLiteDatabase myDataBase = null;
         SQLiteHelper myDbHelper = new SQLiteHelper(context);
@@ -411,11 +411,19 @@ public class CCMRecienNacidoDao {
             parametro = "";
         }
 
+        if (orderBy!=null)
+        {
+            orderBy = " Order By " + orderBy + " DESC" ;
+        }
+        else {
+            orderBy = "";
+        }
+
         try
         {
             myDbHelper.openDataBase();
             myDataBase = myDbHelper.getReadableDatabase();
-            Cursor c = myDataBase.rawQuery("Select * from " + CCMRecienNacido.TABLE_NAME + parametro,null);
+            Cursor c = myDataBase.rawQuery("Select * from " + CCMRecienNacido.TABLE_NAME + parametro + orderBy, null);
 
             if (c.getCount() > 0)
             {

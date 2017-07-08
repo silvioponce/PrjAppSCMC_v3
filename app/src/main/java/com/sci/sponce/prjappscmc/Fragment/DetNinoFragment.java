@@ -495,7 +495,7 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
                     //getFragmentManager().beginTransaction().replace(R.id.Contenedor, new CatCasoNinosFragment().newInstance(Integer.parseInt(idNino), 0, false), "CatCasoNinos").addToBackStack(null).commit();
                     Intent inten = new Intent(getActivity(), DetCasoMayoresActivity.class);
-                    inten.putExtra(DetCasoMayoresFragment.ID, idNino);
+                    inten.putExtra(DetCasoMayoresFragment.ID, Integer.valueOf(idNino));
                     inten.putExtra("modoEdit", false);
                     inten.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     inten.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

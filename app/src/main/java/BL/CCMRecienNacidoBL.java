@@ -28,19 +28,19 @@ public class CCMRecienNacidoBL {
         return ccmRecienNacidoDao.getAllCCMRecienNacidosArrayList(context);
     }
 
-    public ArrayList<CCMRecienNacido> getAllCCMRecienNacidosArrayListCustom(Context context, String parametro) throws SQLException {
+    public ArrayList<CCMRecienNacido> getAllCCMRecienNacidosArrayListCustom(Context context, String strWhere, String strOrderBy) throws SQLException {
 
-        return ccmRecienNacidoDao.getAllCCMRecienNacidosArrayListCustom(context, parametro);
+        return ccmRecienNacidoDao.getAllCCMRecienNacidosArrayListCustom(context, strWhere, strOrderBy);
     }
 
     public CCMRecienNacido getCCMRecienNacidoById(Context context, String idCCMRecienNacido) throws SQLException {
         return ccmRecienNacidoDao.getCCMRecienNacidoById(context, idCCMRecienNacido);
     }
 
-    public ArrayList<CCMRecienNacido> getAllCCMRecienNacidosArrayListByNomNino(Context context, String parametro) throws SQLException {
+    public ArrayList<CCMRecienNacido> getAllCCMRecienNacidosArrayListByNomNino(Context context, String strWhere, String strOrderBy) throws SQLException {
 
         return ccmRecienNacidoDao.getAllCCMRecienNacidosArrayListCustom(context, "IdNino in (\n" +
-                "select _id from ninos where NomNino like '%"+ parametro +"%')");
+                "select _id from ninos where NomNino like '%"+ strWhere +"%')", strOrderBy);
     }
 
     public boolean getExisteCCMRecienNacidoByCustomer(Context context, String parametro)throws SQLException {

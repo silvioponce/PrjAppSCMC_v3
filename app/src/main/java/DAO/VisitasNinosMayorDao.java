@@ -329,7 +329,7 @@ public class VisitasNinosMayorDao {
         return list;
     }
 
-    public static ArrayList<VisitasNinosMayor> getAllVisitasNinosMayoresArrayListCustom(Context context, String parametro) throws SQLException {
+    public static ArrayList<VisitasNinosMayor> getAllVisitasNinosMayoresArrayListCustom(Context context, String parametro, String orderBy) throws SQLException {
         ArrayList<VisitasNinosMayor> list = new ArrayList<VisitasNinosMayor>();
         SQLiteDatabase myDataBase = null;
         SQLiteHelper myDbHelper = new SQLiteHelper(context);
@@ -342,11 +342,19 @@ public class VisitasNinosMayorDao {
             parametro = "";
         }
 
+        if (orderBy!=null)
+        {
+            orderBy = " Order By " + orderBy + " DESC" ;
+        }
+        else {
+            orderBy = "";
+        }
+
         try
         {
             myDbHelper.openDataBase();
             myDataBase = myDbHelper.getReadableDatabase();
-            Cursor c = myDataBase.rawQuery("Select * from " + VisitasNinosMayor.TABLE_NAME + parametro,null);
+            Cursor c = myDataBase.rawQuery("Select * from " + VisitasNinosMayor.TABLE_NAME + parametro + orderBy,null);
 
             if (c.getCount() > 0)
             {

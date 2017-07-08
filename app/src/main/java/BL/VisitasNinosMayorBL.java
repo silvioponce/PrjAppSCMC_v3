@@ -34,15 +34,15 @@ public class VisitasNinosMayorBL {
         return visitasNinosMayorDao.getAllVisitasNinosMayoresArrayList(context);
     }
 
-    public ArrayList<VisitasNinosMayor> getAllVisitasNinosMayoresArrayListCustom(Context context, String parametro) throws SQLException {
+    public ArrayList<VisitasNinosMayor> getAllVisitasNinosMayoresArrayListCustom(Context context, String strWhere, String strOrderBy) throws SQLException {
 
-        return visitasNinosMayorDao.getAllVisitasNinosMayoresArrayListCustom(context, parametro);
+        return visitasNinosMayorDao.getAllVisitasNinosMayoresArrayListCustom(context, strWhere, strOrderBy);
     }
 
-    public ArrayList<VisitasNinosMayor> getAllVisitasNinosMayoresArrayListCustomNomNino(Context context, String parametro) throws SQLException {
+    public ArrayList<VisitasNinosMayor> getAllVisitasNinosMayoresArrayListCustomNomNino(Context context, String strWhere, String strOrderBy) throws SQLException {
 
         return visitasNinosMayorDao.getAllVisitasNinosMayoresArrayListCustom(context, "IdCCMNino in (select _id from CCMNinos where IdNino in (" +
-                "select _id from ninos where NomNino like '%" + parametro + "%'))");
+                "select _id from ninos where NomNino like '%" + strWhere + "%'))", strOrderBy);
     }
 
     public VisitasNinosMayor getVisitasNinosMayorById(Context context, String idVisitaNinoMayor) throws SQLException {

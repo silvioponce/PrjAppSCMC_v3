@@ -349,8 +349,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         msg = "Mensaje de Información: El usuario ha sido Deshabilitado";
                         flag = false;
 
-
-
                     }
 
                 } else {

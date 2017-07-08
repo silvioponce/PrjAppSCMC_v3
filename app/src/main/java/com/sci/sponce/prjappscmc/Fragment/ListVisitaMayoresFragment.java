@@ -113,7 +113,7 @@ public class ListVisitaMayoresFragment extends Fragment implements View.OnClickL
         try {
 
             if (idCCMNino > 0) {
-                arrayOfVisitasNinosMayor = visitasNinosMayorBL.getAllVisitasNinosMayoresArrayListCustom(getActivity(), "IdCCMNino = " + idCCMNino);
+                arrayOfVisitasNinosMayor = visitasNinosMayorBL.getAllVisitasNinosMayoresArrayListCustom(getActivity(), "IdCCMNino = " + idCCMNino, "_id");
             } else {
                 arrayOfVisitasNinosMayor = visitasNinosMayorBL.getAllVisitasNinosMayoresArrayList(getActivity());
             }
@@ -141,7 +141,7 @@ public class ListVisitaMayoresFragment extends Fragment implements View.OnClickL
     private void BuscarVisitaNinosMayores() {
         arrayOfVisitasNinosMayor = new ArrayList<VisitasNinosMayor>();
         try {
-            arrayOfVisitasNinosMayor = visitasNinosMayorBL.getAllVisitasNinosMayoresArrayListCustomNomNino(getActivity(), txtBuscarVisitaNinoMayores.getText().toString());
+            arrayOfVisitasNinosMayor = visitasNinosMayorBL.getAllVisitasNinosMayoresArrayListCustomNomNino(getActivity(), txtBuscarVisitaNinoMayores.getText().toString(), "_id");
         } catch (SQLException e) {
             e.printStackTrace();
         }

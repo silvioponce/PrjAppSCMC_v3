@@ -429,7 +429,7 @@ public class CCMNinoDao {
         return list;
     }
 
-    public static ArrayList<CCMNino> getAllCCMNinosArrayListCustom(Context context, String parametro) throws SQLException {
+    public static ArrayList<CCMNino> getAllCCMNinosArrayListCustom(Context context, String parametro, String orderBy) throws SQLException {
         ArrayList<CCMNino> list = new ArrayList<CCMNino>();
         SQLiteDatabase myDataBase = null;
         SQLiteHelper myDbHelper = new SQLiteHelper(context);
@@ -442,11 +442,19 @@ public class CCMNinoDao {
             parametro = "";
         }
 
+        if (orderBy!=null)
+        {
+            orderBy = " Order By " + orderBy + " DESC" ;
+        }
+        else {
+            orderBy = "";
+        }
+
         try
         {
             myDbHelper.openDataBase();
             myDataBase = myDbHelper.getReadableDatabase();
-            Cursor c = myDataBase.rawQuery("Select * from " + CCMNino.TABLE_NAME + parametro,null);
+            Cursor c = myDataBase.rawQuery("Select * from " + CCMNino.TABLE_NAME + parametro + orderBy,null);
 
             if (c.getCount() > 0)
             {

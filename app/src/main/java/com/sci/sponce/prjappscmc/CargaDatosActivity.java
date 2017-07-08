@@ -105,8 +105,8 @@ public class CargaDatosActivity extends AppCompatActivity implements View.OnClic
         List<CCMNino> listCCMNino = new ArrayList<CCMNino>();
 
         try {
-            listCCCMRecienNacido = ccmRecienNacidoBL.getAllCCMRecienNacidosArrayListCustom(getApplicationContext(), "IdNino = " + nino.get_id());
-            listCCMNino = ccmNinoBL.getAllCCMNinosArrayListCustom(getApplicationContext(), "IdNino = " + nino.get_id());
+            listCCCMRecienNacido = ccmRecienNacidoBL.getAllCCMRecienNacidosArrayListCustom(getApplicationContext(), "IdNino = " + nino.get_id(), "_id");
+            listCCMNino = ccmNinoBL.getAllCCMNinosArrayListCustom(getApplicationContext(), "IdNino = " + nino.get_id(), "_id");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -204,7 +204,7 @@ public class CargaDatosActivity extends AppCompatActivity implements View.OnClic
         List<VisitasNinosMenor> visitasNinosMenors = new ArrayList<VisitasNinosMenor>();
 
         try {
-            visitasNinosMenors = visitasNinosMenorBL.getAllVisitasNinosMenoresArrayListCustom(getApplicationContext(), "IdCCMRecienNacido = " + idCCMNinosMenores);
+            visitasNinosMenors = visitasNinosMenorBL.getAllVisitasNinosMenoresArrayListCustom(getApplicationContext(), "IdCCMRecienNacido = " + idCCMNinosMenores, "_id");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -230,7 +230,7 @@ public class CargaDatosActivity extends AppCompatActivity implements View.OnClic
         List<VisitasNinosMayor> visitasNinosMayors = new ArrayList<VisitasNinosMayor>();
 
         try {
-            visitasNinosMayors = visitasNinosMayorBL.getAllVisitasNinosMayoresArrayListCustom(getApplicationContext(), "IdCCMNino = " + IdCCMNino);
+            visitasNinosMayors = visitasNinosMayorBL.getAllVisitasNinosMayoresArrayListCustom(getApplicationContext(), "IdCCMNino = " + IdCCMNino, "_id");
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -61,6 +62,8 @@ public class ListNinosFragment extends Fragment implements View.OnClickListener 
     EditText txtBuscar;
     NinosAdapter adapter;
     ImageButton btnBuscar;
+
+    int idUsuarioPref;
 
     private ActionMode mActionMode;
     public int selectedItem = -1;
@@ -122,11 +125,13 @@ public class ListNinosFragment extends Fragment implements View.OnClickListener 
 
         lista.setSelected(true);
 
+        CargarPreferencias();
+
         getActivity().setTitle("Buscar Nino(a)");
 
         arrayOfNinos = new ArrayList<Nino>();
         try {
-            arrayOfNinos = ninoBL.getAllNinosArrayList(getActivity());
+            arrayOfNinos = ninoBL.getAllNinosArrayListCustom(getActivity(), "IdUsuario = " + idUsuarioPref, "_id");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -335,12 +340,18 @@ public class ListNinosFragment extends Fragment implements View.OnClickListener 
     public void BuscarUsuarios() {
         arrayOfNinos = new ArrayList<Nino>();
         try {
-            arrayOfNinos = ninoBL.getAllNinosByName(getActivity(), txtBuscar.getText().toString());
+            arrayOfNinos = ninoBL.getAllNinosArrayListCustom(getActivity(), "NomNino like '%" + txtBuscar.getText().toString() + "%' and IdUsuario = " + idUsuarioPref , "_id");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         adapter = new NinosAdapter(getActivity(), arrayOfNinos);
         lista.setAdapter(adapter);
+    }
+
+    public void CargarPreferencias() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("PreferenciasUsuario", getActivity().getApplication().MODE_PRIVATE);
+        idUsuarioPref = sharedPreferences.getInt("IdUsuario", 0);
+
     }
 
     /**

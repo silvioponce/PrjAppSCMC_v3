@@ -126,9 +126,9 @@ public class ListCasoMenoresFragment extends Fragment implements View.OnClickLis
         try {
 
             if (idNino>0){
-                arrayOfCasoNinosMenores = ccmRecienNacidoBL.getAllCCMRecienNacidosArrayListCustom(getActivity(), "IdNino = " + idNino);
+                arrayOfCasoNinosMenores = ccmRecienNacidoBL.getAllCCMRecienNacidosArrayListCustom(getActivity(), "IdNino = " + idNino, "_id");
             }else {
-                arrayOfCasoNinosMenores = ccmRecienNacidoBL.getAllCCMRecienNacidosArrayList(getActivity());
+                arrayOfCasoNinosMenores = ccmRecienNacidoBL.getAllCCMRecienNacidosArrayListCustom(getActivity(), null, "_id");
             }
 
         } catch (SQLException e) {
@@ -274,7 +274,7 @@ public class ListCasoMenoresFragment extends Fragment implements View.OnClickLis
     private void BuscarCasoNinosMenores() {
         arrayOfCasoNinosMenores = new ArrayList<CCMRecienNacido>();
         try {
-            arrayOfCasoNinosMenores = ccmRecienNacidoBL.getAllCCMRecienNacidosArrayListByNomNino(getActivity(), txtBuscarCasoNinoMenores.getText().toString());
+            arrayOfCasoNinosMenores = ccmRecienNacidoBL.getAllCCMRecienNacidosArrayListByNomNino(getActivity(), txtBuscarCasoNinoMenores.getText().toString(), "_id");
         } catch (SQLException e) {
             e.printStackTrace();
         }

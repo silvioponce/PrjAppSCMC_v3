@@ -19,6 +19,11 @@ public class NinoBL {
         return ninoDao.getAllNinosArrayList(context);
     }
 
+    public ArrayList<Nino> getAllNinosArrayListCustom(Context context, String strWhere, String strOrderBy) throws SQLException {
+
+        return ninoDao.getAllNinosArrayListCustom(context, strWhere, strOrderBy);
+    }
+
     public ArrayList<Nino> getAllNinosByName(Context context, String parametro) throws SQLException {
 
         return ninoDao.getAllNinosArrayListCustom(context, "NomNino like '%" + parametro + "%'", "_id");
