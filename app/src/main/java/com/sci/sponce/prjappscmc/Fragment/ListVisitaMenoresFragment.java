@@ -111,7 +111,7 @@ public class ListVisitaMenoresFragment extends Fragment implements View.OnClickL
             if (idCCMRecienNacido > 0) {
                 arrayOfVisitasNinosMenor = visitasNinosMenorBL.getAllVisitasNinosMenoresArrayListCustom(getActivity(), "IdCCMRecienNacido = " + idCCMRecienNacido, "_id");
             } else {
-                arrayOfVisitasNinosMenor = visitasNinosMenorBL.getAllVisitasNinosMenoresArrayList(getActivity());
+                arrayOfVisitasNinosMenor = visitasNinosMenorBL.getAllVisitasNinosMenoresArrayListCustom(getActivity(), null, "_id");
             }
 
         } catch (SQLException e) {

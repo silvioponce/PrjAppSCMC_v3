@@ -452,6 +452,8 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
                 if (verficaCaso())
                     break;
 
+                GuardarCasoNinoMenor();
+
                 AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(getActivity());
 
                 alertDialog1.setTitle("Informacion...");
