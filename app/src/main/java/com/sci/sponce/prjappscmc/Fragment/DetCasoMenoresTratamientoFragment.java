@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -149,6 +150,7 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
             }
 
         }
+
     }
 
     @Override
@@ -202,6 +204,8 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
 
         btnGuardarCasoNinoMenor = (Button) view.findViewById(R.id.btnGuardarCasoNinoMenor);
         btnGuardarCasoNinoMenor.setOnClickListener(this);
+
+        btnGuardarCasoNinoMenor.setVisibility(View.GONE);
 
         spnTratamiento = (Spinner) view.findViewById(R.id.spnTratamiento);
         spnPreguntaTratamiento = (Spinner) view.findViewById(R.id.spnPreguntaTratamiento);
@@ -438,9 +442,49 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btnActionGuardar : {
+                if (verficaCaso())
+                    break;
+
+                GuardarCasoNinoMenor();
+
+                AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(getActivity());
+
+                alertDialog1.setTitle("Informacion...");
+                alertDialog1.setMessage("El Registro se Guardo exitosamente!!!");
+                alertDialog1.setIcon(R.mipmap.ic_save);
+                alertDialog1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                                /*android.app.Fragment f = new android.app.Fragment();
+                                f = new ListCasoMenoresFragment();
+
+                                getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                                getFragmentManager().beginTransaction().replace(R.id.Contenedor, f, "BuscarCasoNinosMenores").addToBackStack(null).commit();*/
+
+                        Intent intent = new Intent(getActivity(), ListCasoMenoresActivity.class);
+                        //intent.putExtra(DetCasoMenoresFragment.ID, 0);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        startActivity(intent);
+
+
+                    }
+                });
+                alertDialog1.show();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.clear();
-        //inflater.inflate(R.menu.menu_cat_ninos, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_action_bar, menu);
+        menu.findItem(R.id.btnActionGuardar).setVisible(true);
 
     }
 

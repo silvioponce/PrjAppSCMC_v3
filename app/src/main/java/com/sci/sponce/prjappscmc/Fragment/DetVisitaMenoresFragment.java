@@ -11,6 +11,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -122,6 +125,7 @@ public class DetVisitaMenoresFragment extends Fragment implements View.OnClickLi
             }
 
         }
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -145,6 +149,7 @@ public class DetVisitaMenoresFragment extends Fragment implements View.OnClickLi
         btnGuardarVisitaMenor = (Button) view.findViewById(R.id.btnGuardarVisitaMenor);
 
         btnGuardarVisitaMenor.setOnClickListener(this);
+        btnGuardarVisitaMenor.setVisibility(View.GONE);
 
         spnResultadoVisita = (Spinner) view.findViewById(R.id.spnResultadoVisita);
 
@@ -395,7 +400,6 @@ public class DetVisitaMenoresFragment extends Fragment implements View.OnClickLi
         return flag;
     }
 
-
     @Override
     public void onClick(View v) {
 
@@ -433,5 +437,46 @@ public class DetVisitaMenoresFragment extends Fragment implements View.OnClickLi
                 break;
         }
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btnActionGuardar : {
+                if (verficaVisita())
+                    break;
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+
+                alertDialog.setTitle("Guardar Registro...");
+                alertDialog.setMessage("¿Desea guardar este registro?");
+                alertDialog.setIcon(R.mipmap.ic_save);
+                alertDialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        GuardarVisitaNinoMenor();
+
+
+                        startActivity(new Intent(getActivity(), ListVistaMenoresActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
+                    }
+                });
+
+                alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alertDialog.show();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_action_bar, menu);
+        menu.findItem(R.id.btnActionGuardar).setVisible(true);
     }
 }

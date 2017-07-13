@@ -11,6 +11,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -118,6 +121,7 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
 
             }
         }
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -159,6 +163,8 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
         btnGuardarVisitaNino = (Button) v.findViewById(R.id.btnGuardarVisitaNino);
 
         btnGuardarVisitaNino.setOnClickListener(this);
+
+        btnGuardarVisitaNino.setVisibility(View.GONE);
 
         spnResultadoVisitaNino = (Spinner) v.findViewById(R.id.spnResultadoVisitaNino);
 
@@ -402,5 +408,50 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
                 break;
         }
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_action_bar, menu);
+        menu.findItem(R.id.btnActionGuardar).setVisible(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btnActionGuardar : {
+                if (verficaVisita())
+                    break;
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+
+                alertDialog.setTitle("Guardar Registro...");
+                alertDialog.setMessage("¿Desea guardar este registro?");
+                alertDialog.setIcon(R.mipmap.ic_save);
+                alertDialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        GuardarVisitaNino();
+                        /*android.app.Fragment f = new android.app.Fragment();
+                        f = new BuscarVisitasNinosMayores().newInstance(idCCMNino, false);
+
+                        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        getFragmentManager().beginTransaction().replace(R.id.Contenedor, f, "BuscarVistaNinosMayores").addToBackStack(null).commit();*/
+                        startActivity(new Intent(getActivity(), ListVisitaMayoresActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
+
+                    }
+                });
+
+                alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alertDialog.show();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

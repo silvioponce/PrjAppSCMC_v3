@@ -11,6 +11,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -110,6 +113,7 @@ public class DetCasoMayoresTratamientoFragment extends Fragment implements View.
             Furazolidona = getArguments().getBoolean(strFurazolidona, false);
 
         }
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -544,4 +548,46 @@ public class DetCasoMayoresTratamientoFragment extends Fragment implements View.
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_action_bar, menu);
+        menu.findItem(R.id.btnActionGuardar).setVisible(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btnActionGuardar : {
+                if (verficaCaso())
+                    break;
+
+                GuardarCasoNino();
+
+                AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+                alertDialog.setTitle("Información...");
+                alertDialog.setMessage("El Caso se Guardo Correctamente!!!");
+                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        /*android.app.Fragment f = new android.app.Fragment();
+                        f = new BuscarCasoNinos();
+
+                        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        getFragmentManager().beginTransaction().replace(R.id.Contenedor, f, "BuscarCasoNinos").addToBackStack(null).commit();*/
+
+                        Intent intent = new Intent(getActivity(), ListCasoMayoresActivity.class);
+                        //intent.putExtra(DetCasoMenoresFragment.ID, 0);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        startActivity(intent);
+
+                    }
+                });
+                alertDialog.setIcon(R.mipmap.ic_save);
+                alertDialog.show();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -127,6 +130,61 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
             e.printStackTrace();
         }
 
+        setHasOptionsMenu(true);
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_action_bar, menu);
+        menu.findItem(R.id.btnActionNext).setVisible(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btnActionNext : {
+                //Toast.makeText(getActivity(), clasificarEnfermedad(), Toast.LENGTH_SHORT).show();
+                String strMensaje;
+
+                strMensaje = clasificarEnfermedad();
+
+                if (strMensaje.equals("NoAplicaNeumonia")) {
+                    Mensajes("La Clasificación no puede tener 2 Tipos de Neumonia por favor revisar los sintomas!!!");
+                    break;
+                }
+
+                if (strMensaje.equals("NoDeshidratacion")) {
+                    Mensajes("La Clasificación no puede tener 2 Tipos de Deshidratación por favor revisar los sintomas!!!");
+                    break;
+                }
+
+                if (strMensaje.equals("NoClasificación")) {
+                    Mensajes("No se ha podido Clasificar la Enfermedad, por favor revise los sintomas!!!");
+                    break;
+                }
+
+                //if (!ModoEdit)
+                ccmNino = guardarDatosCasoNino();
+
+                if (radio_madrebuscabps_Nino.isChecked())
+                    ccmNino.setLugarAtencion("Madre busca a BPS");
+
+                if (radio_sesion_Nino.isChecked())
+                    ccmNino.setLugarAtencion("Sesion de Pesaje");
+
+                if (radio_visitadomiciliar_Nino.isChecked())
+                    ccmNino.setLugarAtencion("Visita Domiciliar");
+
+                ccmNino.setIdNino(idNino);
+
+                getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMayoresTratamientoFragment().newInstance(ccmNino, strMensaje, strRecomendaciones, Amoxicilina, Suero, Zinc, Furazolidona), "CatCasoNinosTratamiento").addToBackStack("").commit();
+
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -182,9 +240,9 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
         tbn_PresentaDeshidratacion = (ToggleButton) v.findViewById(R.id.tbn_PresentaDeshidratacion);
         tbn_CostadoCaliente = (ToggleButton) v.findViewById(R.id.tbn_CostadoCaliente);
 
-
         btnContinuarCasoNinos = (Button) v.findViewById(R.id.btnContinuarCasoNinos);
         btnContinuarCasoNinos.setOnClickListener(this);
+        btnContinuarCasoNinos.setVisibility(View.GONE);
 
         d = new DatePickerDialog.OnDateSetListener() {
             @Override

@@ -8,6 +8,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -114,6 +117,8 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
             e.printStackTrace();
         }
 
+        setHasOptionsMenu(true);
+
         getActivity().setTitle("Ingresar Caso de Nino(a)");
     }
 
@@ -167,6 +172,8 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
         tbn_otra = (ToggleButton) view.findViewById(R.id.tbn_otra);
 
         btnContinuar = (Button) view.findViewById(R.id.btnContinuar);
+
+        btnContinuar.setVisibility(View.GONE);
 
         tbn_nopuedetomarpecho_menores.setOnClickListener(this);
         tbn_convuliones_menores.setOnClickListener(this);
@@ -582,7 +589,6 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
 
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -696,6 +702,54 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
             default:
                 return;
         }
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_action_bar, menu);
+        menu.findItem(R.id.btnActionNext).setVisible(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btnActionNext : {
+                if (radio_madrebuscabps_menores.isChecked())
+                    lugarAtencion = "Madre busca a BPS";
+                if (radio_sesion_menores.isChecked())
+                    lugarAtencion = "Sesion de Pesaje";
+                if (radio_visitadomiciliar_menores.isChecked())
+                    lugarAtencion = "Visita Domiciliar";
+
+
+                if (verificarDatos()) {
+
+                    if (ModoEdit) {
+                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, idCCMRecienNacido, entregoReferencia), "CasoNinosMenoresTratamiento").addToBackStack("").commit();
+                    } else {
+                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo), "CasoNinosMenoresTratamiento").addToBackStack("").commit();
+                    }
+
+                } else {
+                    AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+                    alertDialog.setTitle("Información...");
+                    alertDialog.setMessage("Seleccione una Enfermedad!!!");
+                    alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    alertDialog.setIcon(R.mipmap.ic_casos);
+                    alertDialog.show();
+                }
+
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+
 
     }
 }

@@ -10,7 +10,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,6 +26,7 @@ import android.widget.RadioButton;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.sci.sponce.prjappscmc.DetCasoMayoresActivity;
 import com.sci.sponce.prjappscmc.DetCasoMenoresActivity;
@@ -75,7 +80,6 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
     Spinner spnDepartamento;
     Spinner spnMunicipio;
     Spinner spnComunidad;
-
 
     EditText txtNomBrigadista, txtNomMadre, txtNomNino, txtEdadMeses, txtFecNac;
     RadioButton radio_F, radio_M, radio_mayor2500, radio_menor2500;
@@ -139,6 +143,89 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
             }
 
         }
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btnActionGuardar : {
+                if (!verificarDatos() & !verficaCaso()) {
+
+                    AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(getActivity());
+
+                    alertDialog1.setTitle("Informacion...");
+                    alertDialog1.setMessage(strMensaje);
+                    alertDialog1.setIcon(R.mipmap.ic_save);
+                    alertDialog1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            //startActivity(new Intent(getActivity(), ListNinosActivity.class)
+                            //      .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+
+                        }
+                    });
+                    alertDialog1.show();
+                    break;
+
+                }
+
+                String mensaje = "¿Desea guardar este Recien nacido?";
+
+                if (obtenerMeses(calendar.getTime(), calendarFechaActual.getTime())>=2)
+                {
+                    mensaje = "¿Desea guardar este niño Mayor de de 2 Meses?";
+                }
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+
+                alertDialog.setTitle("Guardar Registro...");
+                alertDialog.setMessage(mensaje);
+                alertDialog.setIcon(R.mipmap.ic_save);
+                alertDialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (!idNino.equals("0")) {
+                            ActualizarNino(idNino);
+
+                            Intent intent = new Intent(getActivity(), ListNinosActivity.class);
+
+
+                            if (getResources().getBoolean(R.bool.esTablet)) {
+
+                                getActivity().getFragmentManager().popBackStack();
+                                startActivity(new Intent(getActivity(), ListNinosActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+
+                            } else {
+                                startActivity(new Intent(getActivity(), ListNinosActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+
+
+                            }
+
+                            startActivity(intent);
+
+
+                        } else {
+                            GuardarNino();
+                            verificarRespuesta();
+                        }
+
+                    }
+                });
+
+                alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(getActivity(), ListNinosActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                    }
+                });
+                alertDialog.show();
+
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -150,6 +237,8 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
         btnGuardarNino = (Button) view.findViewById(R.id.btnGuardarNino);
         btnGuardarNino.setOnClickListener(this);
+
+        btnGuardarNino.setVisibility(View.GONE);
 
         bt_fecnacmimiento = (ImageButton) view.findViewById(R.id.bt_fecnacmimiento);
         txtFecNac = (EditText) view.findViewById(R.id.txtFecNac);
@@ -177,10 +266,15 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
                 calendar.set(Calendar.YEAR, year);
                 calendar.set(Calendar.MONTH, monthOfYear);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                view.setMaxDate(System.currentTimeMillis());
                 updateDate();
                 obtenerMeses(calendar.getTime(), calendarFechaActual.getTime());
             }
         };
+
+
+
+
 
         bt_fecnacmimiento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,6 +335,10 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
         if (ModoEdit) CargarNino(idNino);
 
         spnDepartamento.setSelection(idDepartamento);
+
+
+
+        setHasOptionsMenu(true);
 
         return view;
     }
@@ -528,6 +626,7 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
         Date fecha = calendar.getTime();
         Date fechaRegistro = calendarFechaActual.getTime();
 
+
         nino.setFechaRegistro(fechaRegistro);
 
         nino.setFechaNac(fecha);
@@ -617,20 +716,24 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
             msg = "Por favor digite la Fecha de Nacimiento";
         }
 
+        if (obtenerMeses(calendar.getTime(), calendarFechaActual.getTime())>=72)
+        {
+            msg = "No puede registrar un niño mayor de 72 Meses";
+        }
 
         if (msg == null) {
             reslt = true;
         } else {
             reslt = false;
-            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+            strMensaje = msg;
+            //Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
         }
 
         return reslt;
     }
 
     private boolean verficaCaso() {
-        boolean flag = false;
-        boolean flag2 = false;
+        boolean flag = true;
 
         CCMRecienNacidoBL ccmRecienNacidoBL = new CCMRecienNacidoBL();
         CCMNinoBL ccmNinoBL = new CCMNinoBL();
@@ -640,20 +743,20 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
             nino = ninoBL.getNinoById(getActivity(), idNino);
             if (nino.getIdNino()>0){
                 strMensaje = "El Niño no se puede actualizar, por que ya esta guardado en el Servidor";
-                return true;
+                return false;
             }
 
 
             flag = ccmRecienNacidoBL.getExisteCCMRecienNacidoByCustomer(getActivity(), "IdNino = " + idNino);
             if (flag) {
                 strMensaje = "El Niño no se puede actualizar, por que tiene un Caso Registrado";
-                return true;
+                return false;
             }
 
             flag = ccmNinoBL.getExisteCCMNinoByCustomer(getActivity(), "IdNino = " + idNino);
             if (flag) {
                 strMensaje = "El Niño no se puede actualizar, por que tiene un Caso Registrado";
-                return true;
+                return false;
             }
 
 
@@ -671,7 +774,7 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
             case R.id.btnGuardarNino:
 
 
-                if (!verificarDatos() || verficaCaso()) {
+                if (!verificarDatos() & !verficaCaso()) {
 
                     AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(getActivity());
 
@@ -680,8 +783,8 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
                     alertDialog1.setIcon(R.mipmap.ic_save);
                     alertDialog1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(getActivity(), ListNinosActivity.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                            //startActivity(new Intent(getActivity(), ListNinosActivity.class)
+                              //      .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
 
                         }
                     });
@@ -690,10 +793,17 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
                 }
 
+                String mensaje = "¿Desea guardar este Recien nacido?";
+
+                if (obtenerMeses(calendar.getTime(), calendarFechaActual.getTime())>=2)
+                {
+                    mensaje = "¿Desea guardar este niño Mayor de de 2 Meses?";
+                }
+
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
 
                 alertDialog.setTitle("Guardar Registro...");
-                alertDialog.setMessage("¿Desea guardar este registro?");
+                alertDialog.setMessage(mensaje);
                 alertDialog.setIcon(R.mipmap.ic_save);
                 alertDialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -739,6 +849,13 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
         }
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_action_bar, menu);
+        menu.findItem(R.id.btnActionGuardar).setVisible(true);
     }
 
 }
