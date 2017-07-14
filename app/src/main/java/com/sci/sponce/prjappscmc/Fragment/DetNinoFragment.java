@@ -718,7 +718,7 @@ public class DetNinoFragment extends Fragment implements View.OnClickListener {
 
         if (obtenerMeses(calendar.getTime(), calendarFechaActual.getTime())>=72)
         {
-            msg = "No puede registrar un niño mayor de 72 Meses";
+            msg = "El niño es mayor 72 meses, refieraro al Centro de Salud";
         }
 
         if (msg == null) {

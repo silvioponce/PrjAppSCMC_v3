@@ -122,6 +122,7 @@ public class DetVisitaMayoresFragment extends Fragment implements View.OnClickLi
             }
         }
         setHasOptionsMenu(true);
+
     }
 
     @Override

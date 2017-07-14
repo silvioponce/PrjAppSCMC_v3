@@ -609,9 +609,9 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
                 if (verificarDatos()) {
 
                     if (ModoEdit) {
-                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, idCCMRecienNacido, entregoReferencia), "CasoNinosMenoresTratamiento").addToBackStack("").commit();
+                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, idCCMRecienNacido, entregoReferencia), "CasoNinosMenoresTratamiento").addToBackStack(null).commit();
                     } else {
-                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo), "CasoNinosMenoresTratamiento").addToBackStack("").commit();
+                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo), "CasoNinosMenoresTratamiento").addToBackStack(null).commit();
                     }
 
                 } else {

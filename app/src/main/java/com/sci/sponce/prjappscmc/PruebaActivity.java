@@ -5,12 +5,12 @@ import android.os.Bundle;
 
 import com.sci.sponce.prjappscmc.Fragment.DetVisitaMayoresFragment;
 
-public class DetVisitaMayoresActivity extends AppCompatActivity {
+public class PruebaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_det_visita_mayores);
+        setContentView(R.layout.activity_prueba);
 
         Bundle arguments = new Bundle();
         arguments.putInt(DetVisitaMayoresFragment.ID, getIntent().getIntExtra(DetVisitaMayoresFragment.ID, 0));

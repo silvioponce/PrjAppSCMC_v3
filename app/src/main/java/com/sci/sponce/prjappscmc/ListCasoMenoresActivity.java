@@ -43,8 +43,11 @@ public class ListCasoMenoresActivity extends AppCompatActivity implements ListCa
 
 
         getSupportFragmentManager()
+
                 .beginTransaction()
-                .add(R.id.contenedor_lista, frag)
+                .replace(R.id.contenedor_lista, frag)
+
+
                 .commit();
 
 

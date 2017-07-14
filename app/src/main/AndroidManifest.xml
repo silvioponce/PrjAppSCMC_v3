@@ -51,10 +51,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DetVisitaMenoresActivity" />
         <activity
-            android:name=".DetVisitaMayoresActivity"
-            android:label="@string/title_activity_det_visita_mayores"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".ListVisitaMayoresActivity"
             android:label="@string/title_activity_list_visita_mayores"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -62,7 +58,9 @@
             android:name=".CargaDatosActivity"
             android:label="@string/title_activity_carga_datos"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ViewPDFActivity"></activity>
+        <activity android:name=".ViewPDFActivity" />
+        <activity android:name=".PruebaActivity" />
+        <activity android:name=".DetVisitaMayoresActivity"></activity>
     </application>
 
 </manifest>

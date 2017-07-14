@@ -303,6 +303,7 @@ public class DetCasoMayoresTratamientoFragment extends Fragment implements View.
         });
 
         btnGuardarCasoNino.setOnClickListener(this);
+        btnGuardarCasoNino.setVisibility(View.GONE);
 
     }
 
@@ -520,28 +521,29 @@ public class DetCasoMayoresTratamientoFragment extends Fragment implements View.
                 if (verficaCaso())
                     break;
 
-                GuardarCasoNino();
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
 
-                AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-                alertDialog.setTitle("Información...");
-                alertDialog.setMessage("El Caso se Guardo Correctamente!!!");
-                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                alertDialog.setTitle("Guardar Registro...");
+                alertDialog.setMessage("¿Desea guardar este registro?");
+                alertDialog.setIcon(R.mipmap.ic_save);
+                alertDialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        /*android.app.Fragment f = new android.app.Fragment();
-                        f = new BuscarCasoNinos();
+                        GuardarCasoNino();
 
-                        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                        getFragmentManager().beginTransaction().replace(R.id.Contenedor, f, "BuscarCasoNinos").addToBackStack(null).commit();*/
 
                         Intent intent = new Intent(getActivity(), ListCasoMayoresActivity.class);
                         //intent.putExtra(DetCasoMenoresFragment.ID, 0);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         startActivity(intent);
+                    }
+                });
+
+                alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
 
                     }
                 });
-                alertDialog.setIcon(R.mipmap.ic_save);
                 alertDialog.show();
 
                 break;
