@@ -640,6 +640,7 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
             enfermedad_muy_gr = true;
             strResultado += "Enfermedad muy Grave" + ", ";
             strRecomendaciones += "Refiéralo inmediatamente al establecimiento de salud. \n";
+
         }
 
         // Neumonia Grave
@@ -681,7 +682,7 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
 
         if (tbn_DejoComer.isChecked()) {
             intDeshidratacionGrave += 1;
-            ;
+
         }
 
         if (tbn_OjosHundido.isChecked()) {
@@ -702,6 +703,36 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
 
         } else {
             intDeshidratacionGrave = 0;
+        }
+
+        //Diarrea con Deshidratacion Moderada
+
+        if (tbn_InquietoIrritable.isChecked()) {
+            intDeshidratacionModerada += 1;
+        }
+
+        if (tbn_BebeMuchaSed.isChecked()) {
+            intDeshidratacionModerada += 1;
+        }
+
+        if (tbn_OjosHundido.isChecked()) {
+            intDeshidratacionModerada += 1;
+        }
+
+        if (tbn_SignoPliegue.isChecked()) {
+            intDeshidratacionModerada += 1;
+
+        }
+
+        if (intDeshidratacionModerada >= 2 && intDeshidratacionGrave < 1) {
+            intDeshidratacionModerada = 1;
+            diarrea_deshidratacion_moderada = true;
+            strResultado += "Diarrea con Deshidratación Moderada" + ", ";
+            Zinc = true;
+            strRecomendaciones += "Dar consejería (Lámina de beneficios del suero oral, y que está haciendo con el niño con diarrea en la casa. \n" +
+                    "Oriente a la familia sobre la higiene (lámina de prevención de la diarrea)\n. De tabletas de Zinc. \n Realice visita domiciliar. \n Si frecuentemente tiene diarrea... referir \n Garantizar la adecuada administración del SRO antes de que regrese a la casa. \n";
+        } else {
+            intDeshidratacionModerada = 0;
         }
 
         // Diarrea Persistente
@@ -726,35 +757,7 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
 
         }
 
-        //Diarrea con Deshidratacion Moderada
 
-        if (tbn_InquietoIrritable.isChecked()) {
-            intDeshidratacionModerada += 1;
-        }
-
-        if (tbn_BebeMuchaSed.isChecked()) {
-            intDeshidratacionModerada += 1;
-        }
-
-        if (tbn_OjosHundido.isChecked()) {
-            intDeshidratacionModerada += 1;
-        }
-
-        if (tbn_SignoPliegue.isChecked()) {
-            intDeshidratacionModerada += 1;
-
-        }
-
-        if (intDeshidratacionModerada >= 2) {
-            intDeshidratacionModerada = 1;
-            diarrea_deshidratacion_moderada = true;
-            strResultado += "Diarrea con Deshidratación Moderada" + ", ";
-            Zinc = true;
-            strRecomendaciones += "Dar consejería (Lámina de beneficios del suero oral, y que está haciendo con el niño con diarrea en la casa. \n" +
-                    "Oriente a la familia sobre la higiene (lámina de prevención de la diarrea)\n. De tabletas de Zinc. \n Realice visita domiciliar. \n Si frecuentemente tiene diarrea... referir \n Garantizar la adecuada administración del SRO antes de que regrese a la casa. \n";
-        } else {
-            intDeshidratacionModerada = 0;
-        }
 
 
         //Diarrea sin Deshidratacion
