@@ -307,8 +307,11 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
         if (pregunta == "HundePiel" || pregunta == "RuidosRespirar" || pregunta == "RespRapida")
             txtRecomendaciones.setText("•\tDar primera dosis de Amoxicilina.\n•\tReferirlo.\n•\tRecomendar a la madre que continúe dándole lactancia materna  si es posible, durante el traslado.");
 
-        if (pregunta == "Fibre" || pregunta == "Temperatura")
-            txtRecomendaciones.setText("•\tRefiéralo inmediatamente. \n•\tTemperatura  alta dar Acetaminofén. \n•\tTemperatura baja oriente a la madre: Que mantenga al recién nacido abrigado.");
+        if (pregunta == "Fibre")
+            txtRecomendaciones.setText("•\tRefiéralo inmediatamente. \n•\tTemperatura  alta dar Acetaminofén.");
+
+        if (pregunta == "Temperatura")
+            txtRecomendaciones.setText("•\tRefiéralo inmediatamente. \n•\tSi la temperatura es baja oriente a la madre según lamina de consejería. \n•\tQué está haciendo para mantener la temperatura adecuada en el recién nacido? Oriente a la madre que mantenga al recién nacido abrigado para evitar el enfriamiento");
 
         if (pregunta == "OmbligoPus" || pregunta == "PielUmbilicalRoja" || pregunta == "PielGranos")
             txtRecomendaciones.setText("•\tRefiéralo inmediatamente. \n•\tDar la primera dosis de Amoxicilina.");
