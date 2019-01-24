@@ -84,6 +84,7 @@
     <string name="title_activity_cuestionario_ninnos_menores">Cuestionario Niños Menores</string>
     <string name="tituloninnosmenores">II. Preguntas para niños de 0 a 59 dias</string>
     <string name="subtituloninnosmenores">Observe, revise y compruebe si hay uno o más de estos signos</string>
+    <string name="RespiracionMinuto">Numero de Respiraciones por Minuto </string>
     <string name="tomarpecho">No puede tomar del pecho o beber </string>
     <string name="convulciones">Ha tenido convulsiones o ataques</string>
     <string name="hundepiel">Se le hunde la piel debajo de la costilla al respirar</string>

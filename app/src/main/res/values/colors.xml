@@ -6,4 +6,7 @@
 
     <color name="text_color_default">#00000C</color>
     <color name="text_color_inverse">#FFFFFF</color>
+
+    <color name="toggleButton_OFF">#b6b6b6</color>
+    <color name="toggleButton_ON">#FF4081</color>
 </resources>

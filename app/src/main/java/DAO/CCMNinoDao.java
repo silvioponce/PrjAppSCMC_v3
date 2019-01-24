@@ -103,6 +103,7 @@ public class CCMNinoDao {
                     cCMNino.setPresentaDeshidratacion(Boolean.valueOf(c.getString(c.getColumnIndex("PresentaDeshidratacion"))));
                     cCMNino.setCostadoCaliente(Boolean.valueOf(c.getString(c.getColumnIndex("CostadoCaliente"))));
                     cCMNino.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMNino.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMNino.setObservacion(String.valueOf(c.getString(c.getColumnIndex("Observacion"))));
                     cCMNino.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
                     c.moveToNext();
@@ -199,6 +200,7 @@ public class CCMNinoDao {
                     cCMNino.setPresentaDeshidratacion(Boolean.valueOf(c.getString(c.getColumnIndex("PresentaDeshidratacion"))));
                     cCMNino.setCostadoCaliente(Boolean.valueOf(c.getString(c.getColumnIndex("CostadoCaliente"))));
                     cCMNino.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMNino.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMNino.setObservacion(String.valueOf(c.getString(c.getColumnIndex("Observacion"))));
                     cCMNino.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
                     c.moveToNext();
@@ -260,7 +262,7 @@ public class CCMNinoDao {
                     cCMNino.setPresentaDeshidratacion(Boolean.valueOf(c.getString(c.getColumnIndex("PresentaDeshidratacion"))));
                     cCMNino.setCostadoCaliente(Boolean.valueOf(c.getString(c.getColumnIndex("CostadoCaliente"))));
                     cCMNino.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
-                    cCMNino.setObservacion(String.valueOf(c.getString(c.getColumnIndex("Observacion"))));
+                    cCMNino.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMNino.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
 
                     list.add(cCMNino);
@@ -336,6 +338,7 @@ public class CCMNinoDao {
                     cCMNino.setPresentaDeshidratacion(Boolean.valueOf(c.getString(c.getColumnIndex("PresentaDeshidratacion"))));
                     cCMNino.setCostadoCaliente(Boolean.valueOf(c.getString(c.getColumnIndex("CostadoCaliente"))));
                     cCMNino.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMNino.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMNino.setObservacion(String.valueOf(c.getString(c.getColumnIndex("Observacion"))));
                     cCMNino.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
 
@@ -405,6 +408,7 @@ public class CCMNinoDao {
                     cCMNino.setPresentaDeshidratacion(Boolean.valueOf(c.getString(c.getColumnIndex("PresentaDeshidratacion"))));
                     cCMNino.setCostadoCaliente(Boolean.valueOf(c.getString(c.getColumnIndex("CostadoCaliente"))));
                     cCMNino.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMNino.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMNino.setObservacion(String.valueOf(c.getString(c.getColumnIndex("Observacion"))));
                     cCMNino.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
 
@@ -490,6 +494,7 @@ public class CCMNinoDao {
                     cCMNino.setPresentaDeshidratacion(Boolean.valueOf(c.getString(c.getColumnIndex("PresentaDeshidratacion"))));
                     cCMNino.setCostadoCaliente(Boolean.valueOf(c.getString(c.getColumnIndex("CostadoCaliente"))));
                     cCMNino.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMNino.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMNino.setObservacion(String.valueOf(c.getString(c.getColumnIndex("Observacion"))));
                     cCMNino.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
 
@@ -518,7 +523,7 @@ public class CCMNinoDao {
         Cursor c = null;
         SQLiteDatabase myDataBase = null;
         SQLiteHelper myDbHelper = new SQLiteHelper(context);
-        String[] columnas = new String[] {"_IdCCMNino", "IdCCMNino", "IdNino", "FechaCCM", "LugarAtencion", "DificilDespertar", "NoPuedeTomarPecho", "VomitaTodo", "Ataques", "HundePiel", "RuidosRespirar", "RespiracionRapida", "FrecCardiaca", "SignoNeumonia", "TosCatarro", "Moco", "MuyDormido", "DejoComer", "OjosHundido", "SignoPliegue", "DiarreMayorDias", "PopuSangre", "InquietoIrritable", "BebeMuchaSed", "PresentaDeshidratacion", "CostadoCaliente", "EntregoReferencia", "Observacion", "IdUsuario"};
+        String[] columnas = new String[] {"_IdCCMNino", "IdCCMNino", "IdNino", "FechaCCM", "LugarAtencion", "DificilDespertar", "NoPuedeTomarPecho", "VomitaTodo", "Ataques", "HundePiel", "RuidosRespirar", "RespiracionRapida", "FrecCardiaca", "SignoNeumonia", "TosCatarro", "Moco", "MuyDormido", "DejoComer", "OjosHundido", "SignoPliegue", "DiarreMayorDias", "PopuSangre", "InquietoIrritable", "BebeMuchaSed", "PresentaDeshidratacion", "CostadoCaliente", "EntregoReferencia", "NRespiraciones", "Observacion", "IdUsuario"};
 
         if (parametro!=null)
         {
@@ -669,6 +674,7 @@ public class CCMNinoDao {
         values.put("PresentaDeshidratacion", 	String.valueOf(cCMNino.getPresentaDeshidratacion()));
         values.put("CostadoCaliente", 	String.valueOf(cCMNino.getCostadoCaliente()));
         values.put("EntregoReferencia", 	String.valueOf(cCMNino.getEntregoReferencia()));
+        values.put("NRespiraciones", String.valueOf(cCMNino.getNrespiraciones()));
         values.put("Observacion", 	String.valueOf(cCMNino.getObservacion()));
         values.put("IdUsuario", 	String.valueOf(cCMNino.getIdUsuario()));
 

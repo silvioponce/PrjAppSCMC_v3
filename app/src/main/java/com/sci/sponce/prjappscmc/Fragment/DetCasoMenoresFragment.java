@@ -60,7 +60,7 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
 
     Button btnContinuar;
 
-    EditText edt_fecatencion_menores, edt_fecatencion_Meses;
+    EditText edt_fecatencion_menores, edt_fecatencion_Meses, edt_RespiracionMinuto;
     ImageButton bt_fecatencion_menores;
 
     RadioButton radio_sesion_menores, radio_madrebuscabps_menores, radio_visitadomiciliar_menores, radio_primera_vez_si_menores, radio_primera_vez_no_menores;
@@ -155,6 +155,8 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
         bt_fecatencion_menores = (ImageButton) view.findViewById(R.id.bt_fecatencion_menores);
         edt_fecatencion_menores = (EditText) view.findViewById(R.id.edt_fecatencion_menores);
         edt_fecatencion_Meses = (EditText) view.findViewById(R.id.edt_fecatencion_Meses);
+
+        edt_RespiracionMinuto = (EditText) view.findViewById(R.id.edt_RespiracionMinuto);
 
         tbn_nopuedetomarpecho_menores = (ToggleButton) view.findViewById(R.id.tbn_nopuedetomarpecho_menores);
         tbn_convuliones_menores = (ToggleButton) view.findViewById(R.id.tbn_convuliones_menores);
@@ -456,6 +458,13 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
             grupo = "ninguno";
         }
 
+        if (edt_RespiracionMinuto.getText().toString().isEmpty()) {
+            reslt = false;
+            nomPregunta = "Otra";
+            grupo = "ninguno";
+        }
+
+
 
         return reslt;
     }
@@ -587,6 +596,9 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
 
         edt_fecatencion_Meses.setText(String.valueOf(meses));
 
+        String res = (String.valueOf(ccmRecienNacido.getNrespiraciones()));
+        edt_RespiracionMinuto.setText(res);
+
     }
 
     @Override
@@ -608,10 +620,15 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
 
                 if (verificarDatos()) {
 
+                    String edadnino;
+                    edadnino = edt_fecatencion_Meses.getText().toString();
+                    String NRespiraciones;
+                    NRespiraciones = edt_RespiracionMinuto.getText().toString();
+
                     if (ModoEdit) {
-                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, idCCMRecienNacido, entregoReferencia), "CasoNinosMenoresTratamiento").addToBackStack(null).commit();
+                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, edadnino, NRespiraciones, idCCMRecienNacido, entregoReferencia), "CasoNinosMenoresTratamiento").addToBackStack(null).commit();
                     } else {
-                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo), "CasoNinosMenoresTratamiento").addToBackStack(null).commit();
+                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, edadnino, NRespiraciones), "CasoNinosMenoresTratamiento").addToBackStack(null).commit();
                     }
 
                 } else {
@@ -723,19 +740,30 @@ public class DetCasoMenoresFragment extends Fragment implements View.OnClickList
                 if (radio_visitadomiciliar_menores.isChecked())
                     lugarAtencion = "Visita Domiciliar";
 
+                String edadnino;
+                edadnino = edt_fecatencion_Meses.getText().toString();
+
+                String NRespiraciones;
+                NRespiraciones = edt_RespiracionMinuto.getText().toString();
 
                 if (verificarDatos()) {
 
                     if (ModoEdit) {
-                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, idCCMRecienNacido, entregoReferencia), "CasoNinosMenoresTratamiento").addToBackStack("").commit();
+                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, edadnino, NRespiraciones, idCCMRecienNacido, entregoReferencia), "CasoNinosMenoresTratamiento").addToBackStack("").commit();
                     } else {
-                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo), "CasoNinosMenoresTratamiento").addToBackStack("").commit();
+                        getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMenoresTratamientoFragment().newInstance(idNino, lugarAtencion, nomPregunta, grupo, edadnino, NRespiraciones), "CasoNinosMenoresTratamiento").addToBackStack("").commit();
                     }
 
                 } else {
+
+                    String mensaje = "Seleccione una Enfermedad!!!";
+                    if (edt_RespiracionMinuto.getText().toString().isEmpty()) {
+                        mensaje = "Debe de Registrar la Respiracion del Niño";
+                    }
+
                     AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
                     alertDialog.setTitle("Información...");
-                    alertDialog.setMessage("Seleccione una Enfermedad!!!");
+                    alertDialog.setMessage(mensaje);
                     alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
 

@@ -59,7 +59,7 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
 
     Button btnContinuarCasoNinos;
 
-    EditText edt_fecatencion_Meses_Nino, edt_fecatencion_nino;
+    EditText edt_fecatencion_Meses_Nino, edt_fecatencion_nino, edt_RespiracionMinuto;
     ImageButton bt_fecatencion_Nino;
 
     TextView lblNomNino;
@@ -218,6 +218,8 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
         radio_visitadomiciliar_Nino = (RadioButton) v.findViewById(R.id.radio_visitadomiciliar_Nino);
         radio_primera_vez_si_Ninos = (RadioButton) v.findViewById(R.id.radio_primera_vez_si_Ninos);
         radio_primera_vez_no_Ninos = (RadioButton) v.findViewById(R.id.radio_primera_vez_no_Ninos);
+
+        edt_RespiracionMinuto = (EditText) v.findViewById(R.id.edt_RespiracionMinuto);
 
         tbn_DificilDespertar = (ToggleButton) v.findViewById(R.id.tbn_DificilDespertar);
         tbn_NoPuedeTomarPecho = (ToggleButton) v.findViewById(R.id.tbn_NoPuedeTomarPecho);
@@ -393,6 +395,8 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
         int meses = obtenerMeses(dateFechaNac, date);
 
         edt_fecatencion_Meses_Nino.setText(String.valueOf(meses));
+
+        edt_RespiracionMinuto.setText(String.valueOf(ccmNino.getNrespiraciones()));
 
     }
 
@@ -615,6 +619,8 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
             ccmNino.setCostadoCaliente(true);
         }
 
+        ccmNino.setNrespiraciones(Integer.parseInt(edt_RespiracionMinuto.getText().toString()));
+
         return ccmNino;
 
     }
@@ -817,6 +823,7 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
             int meses = obtenerMeses(date, calendarFechaActual.getTime());
             edt_fecatencion_Meses_Nino.setText(String.valueOf(meses));
 
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -861,6 +868,10 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
                     break;
                 }
 
+                if (edt_RespiracionMinuto.getText().toString().isEmpty()) {
+                    Mensajes("Debe de Registrar la Respiracion del Niño");
+                    break;
+                }
 
                 //if (!ModoEdit)
                 ccmNino = guardarDatosCasoNino();
@@ -877,9 +888,6 @@ public class DetCasoMayoresFragment extends Fragment implements View.OnClickList
                 ccmNino.setIdNino(idNino);
 
                 getFragmentManager().beginTransaction().replace(R.id.contenedor_detalle, new DetCasoMayoresTratamientoFragment().newInstance(ccmNino, strMensaje, strRecomendaciones, Amoxicilina, Suero, Zinc, Furazolidona), "CatCasoNinosTratamiento").addToBackStack("").commit();
-
-
-
 
                 break;
         }

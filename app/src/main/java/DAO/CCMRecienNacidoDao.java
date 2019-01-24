@@ -95,6 +95,7 @@ public class CCMRecienNacidoDao {
                     cCMRecienNacido.setPielGranos(Boolean.valueOf(c.getString(c.getColumnIndex("PielGranos"))));
                     cCMRecienNacido.setOjosPus(Boolean.valueOf(c.getString(c.getColumnIndex("OjosPus"))));
                     cCMRecienNacido.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMRecienNacido.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMRecienNacido.setOtra(Boolean.valueOf(c.getString(c.getColumnIndex("Otra"))));
                     cCMRecienNacido.setObsevaciones(String.valueOf(c.getString(c.getColumnIndex("Obsevaciones"))));
                     cCMRecienNacido.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
@@ -185,6 +186,7 @@ public class CCMRecienNacidoDao {
                     cCMRecienNacido.setPielGranos(Boolean.valueOf(c.getString(c.getColumnIndex("PielGranos"))));
                     cCMRecienNacido.setOjosPus(Boolean.valueOf(c.getString(c.getColumnIndex("OjosPus"))));
                     cCMRecienNacido.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMRecienNacido.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMRecienNacido.setOtra(Boolean.valueOf(c.getString(c.getColumnIndex("Otra"))));
                     cCMRecienNacido.setObsevaciones(String.valueOf(c.getString(c.getColumnIndex("Obsevaciones"))));
                     cCMRecienNacido.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
@@ -240,6 +242,7 @@ public class CCMRecienNacidoDao {
                     cCMRecienNacido.setPielGranos(Boolean.valueOf(c.getString(c.getColumnIndex("PielGranos"))));
                     cCMRecienNacido.setOjosPus(Boolean.valueOf(c.getString(c.getColumnIndex("OjosPus"))));
                     cCMRecienNacido.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMRecienNacido.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMRecienNacido.setOtra(Boolean.valueOf(c.getString(c.getColumnIndex("Otra"))));
                     cCMRecienNacido.setObsevaciones(String.valueOf(c.getString(c.getColumnIndex("Obsevaciones"))));
                     cCMRecienNacido.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
@@ -310,6 +313,7 @@ public class CCMRecienNacidoDao {
                     cCMRecienNacido.setPielGranos(Boolean.valueOf(c.getString(c.getColumnIndex("PielGranos"))));
                     cCMRecienNacido.setOjosPus(Boolean.valueOf(c.getString(c.getColumnIndex("OjosPus"))));
                     cCMRecienNacido.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMRecienNacido.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMRecienNacido.setOtra(Boolean.valueOf(c.getString(c.getColumnIndex("Otra"))));
                     cCMRecienNacido.setObsevaciones(String.valueOf(c.getString(c.getColumnIndex("Obsevaciones"))));
                     cCMRecienNacido.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
@@ -373,6 +377,7 @@ public class CCMRecienNacidoDao {
                     cCMRecienNacido.setPielGranos(Boolean.valueOf(c.getString(c.getColumnIndex("PielGranos"))));
                     cCMRecienNacido.setOjosPus(Boolean.valueOf(c.getString(c.getColumnIndex("OjosPus"))));
                     cCMRecienNacido.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMRecienNacido.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMRecienNacido.setOtra(Boolean.valueOf(c.getString(c.getColumnIndex("Otra"))));
                     cCMRecienNacido.setObsevaciones(String.valueOf(c.getString(c.getColumnIndex("Obsevaciones"))));
                     cCMRecienNacido.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
@@ -452,6 +457,7 @@ public class CCMRecienNacidoDao {
                     cCMRecienNacido.setPielGranos(Boolean.valueOf(c.getString(c.getColumnIndex("PielGranos"))));
                     cCMRecienNacido.setOjosPus(Boolean.valueOf(c.getString(c.getColumnIndex("OjosPus"))));
                     cCMRecienNacido.setEntregoReferencia(Boolean.valueOf(c.getString(c.getColumnIndex("EntregoReferencia"))));
+                    cCMRecienNacido.setNrespiraciones(c.getInt(c.getColumnIndex("NRespiraciones")));
                     cCMRecienNacido.setOtra(Boolean.valueOf(c.getString(c.getColumnIndex("Otra"))));
                     cCMRecienNacido.setObsevaciones(String.valueOf(c.getString(c.getColumnIndex("Obsevaciones"))));
                     cCMRecienNacido.setIdUsuario(c.getInt(c.getColumnIndex("IdUsuario")));
@@ -481,7 +487,7 @@ public class CCMRecienNacidoDao {
         Cursor c = null;
         SQLiteDatabase myDataBase = null;
         SQLiteHelper myDbHelper = new SQLiteHelper(context);
-        String[] columnas = new String[] {"_IdCCMRecienNacido", "IdCCMRecienNacido", "IdNino", "FechaCCM", "LugarAtencion", "NoPuedeTomarPecho", "Convulsiones", "HundePiel", "RuidosRespirar", "RespRapida", "FrecCardiaca", "Fibre", "Temperatura", "PielOjosAmarillos", "MovEstimulos", "OmbligoPus", "PielUmbilicalRoja", "PielGranos", "OjosPus", "EntregoReferencia", "Otra", "Obsevaciones", "IdUsuario"};
+        String[] columnas = new String[] {"_IdCCMRecienNacido", "IdCCMRecienNacido", "IdNino", "FechaCCM", "LugarAtencion", "NoPuedeTomarPecho", "Convulsiones", "HundePiel", "RuidosRespirar", "RespRapida", "FrecCardiaca", "Fibre", "Temperatura", "PielOjosAmarillos", "MovEstimulos", "OmbligoPus", "PielUmbilicalRoja", "PielGranos", "OjosPus", "EntregoReferencia", "NRespiraciones", "Otra", "Obsevaciones", "IdUsuario"};
 
         if (parametro!=null)
         {
@@ -596,6 +602,7 @@ public class CCMRecienNacidoDao {
         values.put("PielGranos", 	String.valueOf(cCMRecienNacido.getPielGranos()));
         values.put("OjosPus", 	String.valueOf(cCMRecienNacido.getOjosPus()));
         values.put("EntregoReferencia", 	String.valueOf(cCMRecienNacido.getEntregoReferencia()));
+        values.put("NRespiraciones", String.valueOf(cCMRecienNacido.getNrespiraciones()));
         values.put("Otra", 	String.valueOf(cCMRecienNacido.getOtra()));
         values.put("Obsevaciones", 	String.valueOf(cCMRecienNacido.getObsevaciones()));
         values.put("IdUsuario", 	String.valueOf(cCMRecienNacido.getIdUsuario()));

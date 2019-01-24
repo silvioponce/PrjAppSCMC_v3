@@ -15,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="20px"
             android:orientation="vertical">
 
             <TextView
@@ -212,6 +213,36 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/RespiracionMinuto"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1" />
+
+
+                <EditText
+                    android:id="@+id/edt_RespiracionMinuto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberSigned" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="@android:color/darker_gray"
+                android:paddingBottom="10dp"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -227,7 +258,8 @@
                     android:textOff="@string/no"
                     android:textOn="@string/si"
 
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -256,7 +288,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -285,7 +318,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -314,7 +348,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -343,7 +378,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -372,7 +408,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -401,7 +438,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -430,7 +468,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -459,7 +498,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -488,7 +528,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -517,7 +558,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -546,7 +588,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -575,7 +618,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -604,7 +648,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -633,7 +678,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
             <View
                 android:layout_width="fill_parent"
@@ -661,7 +707,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -689,7 +736,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -717,7 +765,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View
@@ -745,7 +794,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
             <View
                 android:layout_width="fill_parent"
@@ -773,7 +823,8 @@
 
                     android:textOff="@string/no"
                     android:textOn="@string/si"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:background="@drawable/toggle_button_selector"/>
             </LinearLayout>
 
             <View

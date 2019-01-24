@@ -32,6 +32,7 @@ public class    CCMNino {
     private Boolean PresentaDeshidratacion;
     private Boolean CostadoCaliente;
     private Boolean EntregoReferencia;
+    private int NRespiraciones;
     private String Observacion;
     private int IdUsuario;
 
@@ -43,7 +44,7 @@ public class    CCMNino {
 
     }
 
-    public CCMNino(int _Id, int idCCMNino, int idNino, Date fechaCCM, String lugarAtencion, Boolean dificilDespertar, Boolean noPuedeTomarPecho, Boolean vomitaTodo, Boolean ataques, Boolean hundePiel, Boolean ruidosRespirar, Boolean respiracionRapida, int frecCardiaca, Boolean signoNeumonia, Boolean tosCatarro, Boolean moco, Boolean muyDormido, Boolean dejoComer, Boolean ojosHundido, Boolean signoPliegue, Boolean diarreMayorDias, Boolean popuSangre, Boolean inquietoIrritable, Boolean bebeMuchaSed, Boolean presentaDeshidratacion, Boolean costadoCaliente, Boolean entregoReferencia, String observacion, int idUsuario) {
+    public CCMNino(int _Id, int idCCMNino, int idNino, Date fechaCCM, String lugarAtencion, Boolean dificilDespertar, Boolean noPuedeTomarPecho, Boolean vomitaTodo, Boolean ataques, Boolean hundePiel, Boolean ruidosRespirar, Boolean respiracionRapida, int frecCardiaca, Boolean signoNeumonia, Boolean tosCatarro, Boolean moco, Boolean muyDormido, Boolean dejoComer, Boolean ojosHundido, Boolean signoPliegue, Boolean diarreMayorDias, Boolean popuSangre, Boolean inquietoIrritable, Boolean bebeMuchaSed, Boolean presentaDeshidratacion, Boolean costadoCaliente, Boolean entregoReferencia, int nrespiraciones, String observacion, int idUsuario) {
         this._id = _Id;
         this.IdCCMNino = idCCMNino;
         this.IdNino = idNino;
@@ -71,6 +72,7 @@ public class    CCMNino {
         this.PresentaDeshidratacion = presentaDeshidratacion;
         this.CostadoCaliente = costadoCaliente;
         this.EntregoReferencia = entregoReferencia;
+        this.NRespiraciones = nrespiraciones;
         this.Observacion = observacion;
         this.IdUsuario = idUsuario;
     }
@@ -319,6 +321,13 @@ public class    CCMNino {
         EntregoReferencia = entregoReferencia;
     }
 
+    public int getNrespiraciones() {
+        return NRespiraciones;
+    }
+
+    public void setNrespiraciones(int nrespiraciones) {
+        NRespiraciones = nrespiraciones;
+    }
 
     public String getObservacion() {
         return Observacion;

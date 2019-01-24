@@ -26,6 +26,7 @@ public class CCMRecienNacido {
     private Boolean OjosPus;
     private Boolean EntregoReferencia;
     private Boolean Otra;
+    private int Nrespiraciones;
     private String Obsevaciones;
     private int IdUsuario;
 
@@ -37,7 +38,7 @@ public class CCMRecienNacido {
 
     }
 
-    public CCMRecienNacido(int _Id, int idCCMRecienNacido, int idNino, Date fechaCCM, String lugarAtencion, Boolean noPuedeTomarPecho, Boolean convulsiones, Boolean hundePiel, Boolean ruidosRespirar, Boolean respRapida, int frecCardiaca, Boolean fibre, Boolean temperatura, Boolean pielOjosAmarillos, Boolean movEstimulos, Boolean ombligoPus, Boolean pielUmbilicalRoja, Boolean pielGranos, Boolean ojosPus, Boolean entregoReferencia, Boolean otra, String obsevaciones, int idUsuario) {
+    public CCMRecienNacido(int _Id, int idCCMRecienNacido, int idNino, Date fechaCCM, String lugarAtencion, Boolean noPuedeTomarPecho, Boolean convulsiones, Boolean hundePiel, Boolean ruidosRespirar, Boolean respRapida, int frecCardiaca, Boolean fibre, Boolean temperatura, Boolean pielOjosAmarillos, Boolean movEstimulos, Boolean ombligoPus, Boolean pielUmbilicalRoja, Boolean pielGranos, Boolean ojosPus, Boolean entregoReferencia, Boolean otra, int nrespiraciones, String obsevaciones, int idUsuario) {
         this._id = _Id;
         this.IdCCMRecienNacido = idCCMRecienNacido;
         this.IdNino = idNino;
@@ -59,6 +60,7 @@ public class CCMRecienNacido {
         this.OjosPus = ojosPus;
         this.EntregoReferencia = entregoReferencia;
         this.Otra = otra;
+        this.Nrespiraciones = nrespiraciones;
         this.Obsevaciones = obsevaciones;
         this.IdUsuario = idUsuario;
     }
@@ -253,6 +255,13 @@ public class CCMRecienNacido {
         Otra = otra;
     }
 
+    public int getNrespiraciones() {
+        return Nrespiraciones;
+    }
+
+    public void setNrespiraciones(int nrespiraciones) {
+        Nrespiraciones = nrespiraciones;
+    }
 
     public String getObsevaciones() {
         return Obsevaciones;

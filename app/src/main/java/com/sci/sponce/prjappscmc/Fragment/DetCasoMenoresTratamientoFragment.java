@@ -54,6 +54,8 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
     private static final String ARG_PARAM4 = "param4";
     private static final String ARG_PARAM5 = "param5";
     private static final String ARG_PARAM6 = "param6";
+    private static final String ARG_PARAM7 = "param7";
+    private static final String ARG_PARAM8 = "param8";
 
     private String mParam1;
 
@@ -76,6 +78,8 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
     String tratamiento;
     String grupoTratamiento;
     int idTratamientoNinosMenores;
+    String edadNino;
+    String nrespiraciones;
     String dosis;
     String observaciones;
 
@@ -89,26 +93,30 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
         // Required empty public constructor
     }
 
-    public static DetCasoMenoresTratamientoFragment newInstance(String param1, String param2, String param3, String param4) {
+    public static DetCasoMenoresTratamientoFragment newInstance(String param1, String param2, String param3, String param4, String param5, String param6) {
         DetCasoMenoresTratamientoFragment fragment = new DetCasoMenoresTratamientoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         args.putString(ARG_PARAM3, param3);
         args.putString(ARG_PARAM4, param4);
+        args.putString(ARG_PARAM5, param5);
+        args.putString(ARG_PARAM6, param6);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public static DetCasoMenoresTratamientoFragment newInstance(String param1, String param2, String param3, String param4, int idCCMRecienNacido, boolean entregoReferencia) {
+    public static DetCasoMenoresTratamientoFragment newInstance(String param1, String param2, String param3, String param4, String param5, String param6, int idCCMRecienNacido, boolean entregoReferencia) {
         DetCasoMenoresTratamientoFragment fragment = new DetCasoMenoresTratamientoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         args.putString(ARG_PARAM3, param3);
         args.putString(ARG_PARAM4, param4);
-        args.putInt(ARG_PARAM5, idCCMRecienNacido);
-        args.putBoolean(ARG_PARAM6, entregoReferencia);
+        args.putString(ARG_PARAM5, param5);
+        args.putString(ARG_PARAM6, param6);
+        args.putInt(ARG_PARAM7, idCCMRecienNacido);
+        args.putBoolean(ARG_PARAM8, entregoReferencia);
         fragment.setArguments(args);
         return fragment;
     }
@@ -140,11 +148,13 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
             LugarAtencion = getArguments().getString(ARG_PARAM2);
             NomPregunta = getArguments().getString(ARG_PARAM3);
             grupo = getArguments().getString(ARG_PARAM4);
+            edadNino = getArguments().getString(ARG_PARAM5);
 
-            idCCMRecienNacido = getArguments().getInt(ARG_PARAM5);
+            nrespiraciones = getArguments().getString(ARG_PARAM6);
+            idCCMRecienNacido = getArguments().getInt(ARG_PARAM7);
 
             if (idCCMRecienNacido > 0) {
-                entregoReferencia = getArguments().getBoolean(ARG_PARAM6);
+                entregoReferencia = getArguments().getBoolean(ARG_PARAM8);
 
                 ModoEdit = true;
             }
@@ -221,11 +231,21 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 tratamiento = parent.getItemAtPosition(position).toString();
                 CargarPreguntasTratamiento(tratamiento);
+
+
+                if (!grupo.equals("Tetraciclina")){
+                    if (Integer.parseInt(edadNino)==0){
+                        spnPreguntaTratamiento.setSelection(0);
+                    }else{
+                        spnPreguntaTratamiento.setSelection(1);
+                    }
+                }
+
                 if (ModoEdit) {
                     spnPreguntaTratamiento.setSelection(idTratamiento);
                     ModoEdit = false;
-                }
 
+                }
 
             }
 
@@ -398,6 +418,8 @@ public class DetCasoMenoresTratamientoFragment extends Fragment implements View.
         } else {
             ccmRecienNacido.setEntregoReferencia(false);
         }
+
+        ccmRecienNacido.setNrespiraciones(Integer.parseInt(nrespiraciones));
 
         try {
             int id;
