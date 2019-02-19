@@ -511,6 +511,7 @@ public class ComunidadDao {
             myDbHelper.openDataBase();
             myDataBase = myDbHelper.getWritableDatabase();
 
+
             result = (int) myDataBase.insert(Comunidad.TABLE_NAME, null, ComunidadCV(comunidad));
 
 
@@ -577,7 +578,7 @@ public class ComunidadDao {
     public ContentValues ComunidadCV(Comunidad comunidad){
         ContentValues values = new ContentValues();
 
-        values.put("_id", 	String.valueOf(comunidad.get_id()));
+        //values.put("_id", 	String.valueOf(comunidad.get_id()));
         values.put("IdComunidad", 	String.valueOf(comunidad.getIdComunidad()));
         values.put("NomComunidad", 	String.valueOf(comunidad.getNomComunidad()));
         values.put("IdMunicipio", 	String.valueOf(comunidad.getIdMunicipio()));

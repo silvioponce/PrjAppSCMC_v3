@@ -4,7 +4,7 @@
     <!-- Strings related to login -->
     <string name="prompt_user">Usuarios</string>
     <string name="prompt_password">Contraseña</string>
-    <string name="action_sign_in">Iniciar Sesión Prueba</string>
+    <string name="action_sign_in">Iniciar Sesión</string>
     <string name="action_sign_in_short">Iniciar Sesión</string>
     <string name="error_invalid_user">El Usuario es Invalido</string>
     <string name="error_invalid_password">La Contraseña es muy Corta</string>
